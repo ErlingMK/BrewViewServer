@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 
-namespace BrewViewServer.Repositories
+namespace BrewViewServer.Authentication.Google
 {
-    public interface IGoogleRepository
+    public interface IGoogleAuthentication
     {
         Task<string> GetAuthEndpoint();
         Task<string> GetTokenEndpoint();

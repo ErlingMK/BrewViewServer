@@ -1,27 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using BrewViewServer.Controllers;
 using Newtonsoft.Json;
 
-namespace BrewViewServer.Repositories
+namespace BrewViewServer.Authentication.Google
 {
-    public class GoogleRepository : IGoogleRepository
+    public class GoogleAuthentication : IGoogleAuthentication
     {
         private static readonly string m_discoveryEndpoint =
             "https://accounts.google.com/.well-known/openid-configuration";
 
         private readonly HttpClient m_client;
 
-        public GoogleRepository(IHttpClientFactory clientFactory)
+        public GoogleAuthentication(IHttpClientFactory clientFactory)
         {
             m_client = clientFactory.CreateClient("GoogleAuth");
         }
 
-        private GoogleAuthInfo GoogleAuthInfo { get; set; }
-        private GoogleCertificates GoogleCertificates { get; set; }
+        private GoogleAuthInfo GoogleAuthInfo { get; set; } = new GoogleAuthInfo();
+        private GoogleCertificates GoogleCertificates { get; set; } = new GoogleCertificates();
 
         public async Task<string> GetAuthEndpoint()
         {
@@ -47,14 +45,14 @@ namespace BrewViewServer.Repositories
             }
 
             var certResponse = await m_client.SendAsync(new HttpRequestMessage(HttpMethod.Get, GoogleAuthInfo.CertEndpoint));
-            GoogleCertificates =  JsonConvert.DeserializeObject<GoogleCertificates>(await certResponse.Content.ReadAsStringAsync());
+            GoogleCertificates = JsonConvert.DeserializeObject<GoogleCertificates>(await certResponse.Content.ReadAsStringAsync());
 
             return GoogleCertificates.Keys.Single(key => key.Kid == kid);
         }
 
         private async Task ReadDiscoveryEndpoint()
         {
-            if (GoogleAuthInfo != null) return;
+            if (!GoogleAuthInfo.IsEmpty) return;
 
             var response = await m_client.SendAsync(new HttpRequestMessage(HttpMethod.Get, m_discoveryEndpoint));
 
@@ -64,6 +62,9 @@ namespace BrewViewServer.Repositories
 
     internal class GoogleAuthInfo
     {
+        public bool IsEmpty => string.IsNullOrEmpty(AuthorizationEndpoint) || string.IsNullOrEmpty(TokenEndpoint) ||
+                               string.IsNullOrEmpty(CertEndpoint);
+
         [JsonProperty("authorization_endpoint")]
         public string AuthorizationEndpoint { get; set; }
 
@@ -76,7 +77,7 @@ namespace BrewViewServer.Repositories
 
     public class GoogleCertificates
     {
-        public IList<Key> Keys { get; set; }
+        public IList<Key> Keys { get; set; } = new List<Key>();
     }
 
     public class Key

@@ -1,9 +1,12 @@
+using BrewViewServer.Authentication;
+using BrewViewServer.Authentication.Google;
 using BrewViewServer.GraphQL;
 using BrewViewServer.Models;
 using BrewViewServer.Repositories;
 using BrewViewServer.Services;
 using HotChocolate;
 using HotChocolate.AspNetCore;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -12,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using AuthenticationService = BrewViewServer.Authentication.AuthenticationService;
 
 namespace BrewViewServer
 {
@@ -29,37 +33,20 @@ namespace BrewViewServer
         {
             services.AddDbContext<BrewContext>(opt =>
             {
-                //opt.UseSqlite("Data Source=Brew.db");
-                opt.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Brew;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                opt.UseSqlite("Data Source=Brew.db");
+                //opt.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Brew;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             });
-
-            //services.AddAuthentication(opt =>
-            //{
-            //    opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //    opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //}).AddJwtBearer();
-
-            //var builder = services.AddIdentityCore<AppUser>(o =>
-            //    {
-            //        o.Password.RequireDigit = false;
-            //        o.Password.RequireLowercase = false;
-            //        o.Password.RequireUppercase = false;
-            //        o.Password.RequireNonAlphanumeric = false;
-            //        o.Password.RequiredLength = 6;
-            //    })
-            //    .AddEntityFrameworkStores<BrewContext>();
-
 
             services.AddGraphQL(
                 SchemaBuilder.New()
                     .AddQueryType<Query>()
                     .AddMutationType<Mutation>()
-                    .AddAuthorizeDirectiveType()
                     .Create());
 
             services.AddScoped<TokenService>();
+            services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<IBrewRepository, BrewRepository>();
-            services.AddSingleton<IGoogleRepository, GoogleRepository>();
+            services.AddSingleton<IGoogleAuthentication, GoogleAuthentication>();
             services.AddHttpContextAccessor();
             services.AddControllers();
             services.AddHttpClient();
@@ -74,8 +61,7 @@ namespace BrewViewServer
 
             app.UseRouting();
 
-            //app.UseAuthentication();
-            //app.UseAuthorization();
+            app.UseCustomAuthentication();
 
             app.UseGraphQL();
             app.UsePlayground();

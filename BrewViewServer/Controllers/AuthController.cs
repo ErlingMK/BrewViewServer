@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
+﻿using System.Collections.Generic;
 using System.Net.Http;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
-using BrewViewServer.Models;
+using BrewViewServer.Authentication.Google;
 using BrewViewServer.Repositories;
-using BrewViewServer.Services;
 using BrewViewServer.Util;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 
 namespace BrewViewServer.Controllers
@@ -22,18 +16,13 @@ namespace BrewViewServer.Controllers
     {
         private readonly IHttpClientFactory m_clientFactory;
         private readonly IConfiguration m_configuration;
-        private readonly IGoogleRepository m_googleRepository;
-        private readonly TokenService m_tokenService;
-        private readonly UserManager<AppUser> m_userManager;
+        private readonly IGoogleAuthentication m_googleAuthentication;
 
-        public AuthController(UserManager<AppUser> userManager, TokenService tokenService,
-            IHttpClientFactory clientFactory, IConfiguration configuration, IGoogleRepository googleRepository)
+        public AuthController(IHttpClientFactory clientFactory, IConfiguration configuration, IGoogleAuthentication googleAuthentication)
         {
-            m_userManager = userManager;
-            m_tokenService = tokenService;
             m_clientFactory = clientFactory;
             m_configuration = configuration;
-            m_googleRepository = googleRepository;
+            m_googleAuthentication = googleAuthentication;
         }
 
         [HttpGet]
@@ -43,8 +32,9 @@ namespace BrewViewServer.Controllers
             //TODO: Verify this later
             var generateStateValue = StringGenerator.GenerateStateValue();
 
-            var url = OAuthRequestBuilder.AppendQueryString(m_configuration["GoogleAuth:client_id"], m_configuration["GoogleAuth:redirect_uri"],
-                new List<string> {"openid", "email"}, generateStateValue, await m_googleRepository.GetAuthEndpoint(),
+            var url = OAuthRequestBuilder.AppendQueryString(m_configuration["GoogleAuth:client_id"],
+                m_configuration["GoogleAuth:redirect_uri"],
+                new List<string> {"openid", "email"}, generateStateValue, await m_googleAuthentication.GetAuthEndpoint(),
                 "arandomnoonce");
 
             return Redirect(url);
@@ -57,7 +47,7 @@ namespace BrewViewServer.Controllers
             var httpClient = m_clientFactory.CreateClient();
 
             var httpRequestMessage =
-                new HttpRequestMessage(HttpMethod.Post, await m_googleRepository.GetTokenEndpoint())
+                new HttpRequestMessage(HttpMethod.Post, await m_googleAuthentication.GetTokenEndpoint())
                 {
                     Content = OAuthRequestBuilder.TokenRequestContent(code, m_configuration["GoogleAuth:client_id"],
                         m_configuration["GoogleAuth:client_secret"], m_configuration["GoogleAuth:redirect_uri"])
@@ -67,25 +57,8 @@ namespace BrewViewServer.Controllers
 
             var json = await response.Content.ReadAsStringAsync();
             var tokenResponse = JsonConvert.DeserializeObject<TokenResponse>(json);
-            
+
             return Ok(tokenResponse.IdToken);
-        }
-
-        [HttpPost("login")]
-        public async Task<IActionResult> Post([FromBody] CredentialsModel credentials)
-        {
-            var jwt = await VerifyUser(credentials.Username, credentials.Password);
-
-            return new OkObjectResult(jwt);
-        }
-
-        private async Task<string> VerifyUser(string credentialsUsername, string credentialsPassword)
-        {
-            var user = await m_userManager.FindByNameAsync(credentialsUsername);
-
-            var result = await m_userManager.CheckPasswordAsync(user, credentialsPassword);
-
-            return result ? m_tokenService.CreateToken(user) : string.Empty;
         }
     }
 }

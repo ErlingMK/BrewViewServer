@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Http;
 
 namespace BrewViewServer.GraphQL
 {
-    [Authorize]
     public class Mutation
     {
         private readonly IBrewRepository m_brewRepository;

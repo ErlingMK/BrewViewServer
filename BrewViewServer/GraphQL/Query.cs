@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.Http;
 
 namespace BrewViewServer.GraphQL
 {
-    [Authorize]
     public class Query
     {
         private readonly IBrewRepository m_repository;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using BrewViewServer;
 using Microsoft.AspNetCore.Authorization;
@@ -18,15 +19,15 @@ namespace BrewViewServer.Controllers
             
         }
 
-        [GoogleAuthorizationHandler]
         [HttpGet]
         public IActionResult Get()
         {
             var user = HttpContext.User;
+            var id = user.FindFirst(claim => claim.Type == ClaimTypes.NameIdentifier);
 
             return new OkObjectResult(new
             {
-                user.Identity.Name
+                id.Value
             });
         }
     }
