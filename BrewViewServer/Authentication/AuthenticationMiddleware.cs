@@ -16,13 +16,19 @@ namespace BrewViewServer.Authentication
 
         public AuthenticationMiddleware(RequestDelegate next)
         {
-            _next = next;
+            _next = next;   
         }
 
         public async Task InvokeAsync(HttpContext user, IAuthenticationService authenticationService)
         {
-            if (user.Request.Path.ToUriComponent().Contains("auth"))
+            var path = user.Request.Path.ToUriComponent();
+            if (path.Contains("auth"))
             {
+                await _next(user);
+            }
+            else if (path.Contains("vinmonopol"))
+            {
+                // TODO: Verify admin user
                 await _next(user);
             }
             else
@@ -31,7 +37,10 @@ namespace BrewViewServer.Authentication
                 {
                     await _next(user);
                 }
-                user.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                else
+                {
+                    user.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                }
             }
         }
 

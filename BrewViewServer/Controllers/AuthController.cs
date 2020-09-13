@@ -17,12 +17,14 @@ namespace BrewViewServer.Controllers
         private readonly IHttpClientFactory m_clientFactory;
         private readonly IConfiguration m_configuration;
         private readonly IGoogleAuthentication m_googleAuthentication;
+        private readonly IUserRepository m_userRepository;
 
-        public AuthController(IHttpClientFactory clientFactory, IConfiguration configuration, IGoogleAuthentication googleAuthentication)
+        public AuthController(IHttpClientFactory clientFactory, IConfiguration configuration, IGoogleAuthentication googleAuthentication, IUserRepository userRepository)
         {
             m_clientFactory = clientFactory;
             m_configuration = configuration;
             m_googleAuthentication = googleAuthentication;
+            m_userRepository = userRepository;
         }
 
         [HttpGet]
@@ -31,7 +33,6 @@ namespace BrewViewServer.Controllers
         {
             //TODO: Verify this later
             var generateStateValue = StringGenerator.GenerateStateValue();
-
             var url = OAuthRequestBuilder.AppendQueryString(m_configuration["GoogleAuth:client_id"],
                 m_configuration["GoogleAuth:redirect_uri"],
                 new List<string> {"openid", "email"}, generateStateValue, await m_googleAuthentication.GetAuthEndpoint(),
@@ -54,11 +55,12 @@ namespace BrewViewServer.Controllers
                 };
 
             var response = await httpClient.SendAsync(httpRequestMessage);
-
             var json = await response.Content.ReadAsStringAsync();
-            var tokenResponse = JsonConvert.DeserializeObject<TokenResponse>(json);
+            var token = JsonConvert.DeserializeObject<TokenResponse>(json);
+            
+            await m_userRepository.Create(token);   
 
-            return Ok(tokenResponse.IdToken);
+            return Ok(token.IdToken);
         }
     }
 }

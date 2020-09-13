@@ -3,6 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using BrewViewServer.Models;
+using BrewViewServer.Models.User;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
@@ -17,7 +18,7 @@ namespace BrewViewServer.Services
             m_configuration = configuration;
         }
 
-        public string CreateToken(AppUser user)
+        public string CreateToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(m_configuration["JwtKey"]);

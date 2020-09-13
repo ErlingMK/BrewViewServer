@@ -34,7 +34,7 @@ namespace BrewViewServer.GraphQL
             return brew.ProductId;
         }
 
-        public async Task<IList<AppUserBrew>> GetBrews()
+        public async Task<IList<UserBrew>> GetBrews()
         {
             return await m_repository.GetBrews(m_contextAccessor);
         }

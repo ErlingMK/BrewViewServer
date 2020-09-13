@@ -1,4 +1,4 @@
-﻿namespace BrewViewServer.Models
+﻿namespace BrewViewServer.Models.User
 {
     public class RegistrationModel
     {

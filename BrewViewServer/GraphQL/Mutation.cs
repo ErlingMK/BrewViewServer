@@ -23,17 +23,17 @@ namespace BrewViewServer.GraphQL
             return await m_brewRepository.Create(brew);
         }
 
-        public async Task<AppUserBrew> MakeFavorite(Brew brew)
+        public async Task<UserBrew> MakeFavorite(Brew brew)
         {
             return await m_brewRepository.Favorite(brew, m_contextAccessor.HttpContext.User);
         }
 
-        public async Task<AppUserBrew> Rate(string productId, int rating)
+        public async Task<UserBrew> Rate(string productId, int rating)
         {
             return await m_brewRepository.Rate(productId, rating, m_contextAccessor.HttpContext.User);
         }
 
-        public async Task<AppUserBrew> MakeNote(string productId, Note note)
+        public async Task<UserBrew> MakeNote(string productId, Note note)
         {
             return await m_brewRepository.MakeNote(productId, note, m_contextAccessor.HttpContext.User);
         }

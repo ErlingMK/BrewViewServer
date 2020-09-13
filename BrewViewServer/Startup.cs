@@ -1,3 +1,4 @@
+using System.Net.Http;
 using BrewViewServer.Authentication;
 using BrewViewServer.Authentication.Google;
 using BrewViewServer.GraphQL;
@@ -46,11 +47,14 @@ namespace BrewViewServer
             services.AddScoped<TokenService>();
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<IBrewRepository, BrewRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddSingleton<IGoogleAuthentication, GoogleAuthentication>();
             services.AddHttpContextAccessor();
             services.AddControllers();
             services.AddHttpClient();
         }
+
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -61,6 +65,10 @@ namespace BrewViewServer
 
             app.UseRouting();
 
+            if (env.IsProduction())
+            {
+                app.UseCustomAuthentication();
+            }
             app.UseCustomAuthentication();
 
             app.UseGraphQL();
