@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.AccessControl;
 using System.Threading.Tasks;
 using BrewViewServer.Models;
+using BrewViewServer.Models.VinmonopolModels;
 using BrewViewServer.Repositories;
 using HotChocolate;
 using HotChocolate.AspNetCore.Authorization;
@@ -15,28 +16,25 @@ namespace BrewViewServer.GraphQL
     public class Query
     {
         private readonly IBrewRepository m_repository;
-        private readonly IHttpContextAccessor m_contextAccessor;
 
-        public Query([Service] IBrewRepository repository, [Service] IHttpContextAccessor contextAccessor)
+        public Query([Service] IBrewRepository repository)
         {
             m_repository = repository;
-            m_contextAccessor = contextAccessor;
         }
             
-        public async Task<Brew> GetBrew(string productId)
+        public async Task<AlcoholicEntity> GetBrew(string productId)
         {
             return await m_repository.Get(productId);
         }
 
-        public async Task<string> GetBrewId(string gtin)
+        public async Task<AlcoholicEntity> GetBrewId(string gtin)
         {
-            var brew = await m_repository.GetByGtin(gtin);
-            return brew.ProductId;
+            return await m_repository.GetByGtin(gtin);
         }
 
         public async Task<IList<UserBrew>> GetBrews()
         {
-            return await m_repository.GetBrews(m_contextAccessor);
+            return await m_repository.GetBrews();
         }
     }
 }

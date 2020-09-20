@@ -29,6 +29,49 @@ namespace BrewViewServer.Migrations
                     b.ToTable("Brews");
                 });
 
+            modelBuilder.Entity("BrewViewServer.Models.FoodAlcoholicEntity", b =>
+                {
+                    b.Property<string>("ProductId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FoodId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("AlcoholicEntityProductId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ProductId", "FoodId");
+
+                    b.HasIndex("AlcoholicEntityProductId");
+
+                    b.HasIndex("FoodId");
+
+                    b.ToTable("FoodBrews");
+                });
+
+            modelBuilder.Entity("BrewViewServer.Models.GrapeAlcoholicEntity", b =>
+                {
+                    b.Property<string>("ProductId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("GrapeId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("AlcoholicEntityProductId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("GrapePercent")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ProductId", "GrapeId");
+
+                    b.HasIndex("AlcoholicEntityProductId");
+
+                    b.HasIndex("GrapeId");
+
+                    b.ToTable("GrapeBrews");
+                });
+
             modelBuilder.Entity("BrewViewServer.Models.Note", b =>
                 {
                     b.Property<int>("NoteId")
@@ -137,6 +180,32 @@ namespace BrewViewServer.Migrations
                     b.ToTable("AlcoholicEntities");
                 });
 
+            modelBuilder.Entity("BrewViewServer.Models.VinmonopolModels.Food", b =>
+                {
+                    b.Property<string>("FoodId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FoodDesc")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("FoodId");
+
+                    b.ToTable("Foods");
+                });
+
+            modelBuilder.Entity("BrewViewServer.Models.VinmonopolModels.Grape", b =>
+                {
+                    b.Property<string>("GrapeId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("GrapeDesc")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("GrapeId");
+
+                    b.ToTable("Grapes");
+                });
+
             modelBuilder.Entity("BrewViewServer.Models.VinmonopolModels.Price", b =>
                 {
                     b.Property<Guid?>("PriceId")
@@ -163,6 +232,32 @@ namespace BrewViewServer.Migrations
                     b.HasIndex("AlcoholicEntityProductId");
 
                     b.ToTable("Price");
+                });
+
+            modelBuilder.Entity("BrewViewServer.Models.FoodAlcoholicEntity", b =>
+                {
+                    b.HasOne("BrewViewServer.Models.VinmonopolModels.AlcoholicEntity", "AlcoholicEntity")
+                        .WithMany()
+                        .HasForeignKey("AlcoholicEntityProductId");
+
+                    b.HasOne("BrewViewServer.Models.VinmonopolModels.Food", "Food")
+                        .WithMany()
+                        .HasForeignKey("FoodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("BrewViewServer.Models.GrapeAlcoholicEntity", b =>
+                {
+                    b.HasOne("BrewViewServer.Models.VinmonopolModels.AlcoholicEntity", "AlcoholicEntity")
+                        .WithMany()
+                        .HasForeignKey("AlcoholicEntityProductId");
+
+                    b.HasOne("BrewViewServer.Models.VinmonopolModels.Grape", "Grape")
+                        .WithMany()
+                        .HasForeignKey("GrapeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("BrewViewServer.Models.Note", b =>

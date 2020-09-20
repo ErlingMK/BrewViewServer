@@ -5,25 +5,31 @@ using System.Threading.Tasks;
 using BrewViewServer.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace BrewViewServer.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class VinmonopolController : Controller
     {
-        private readonly IBrewRepository m_brewRepository;
+        private readonly IVinmonopolRepository m_vinmonopolRepository;
 
-        public VinmonopolController(IBrewRepository brewRepository)
+        public VinmonopolController(IVinmonopolRepository vinmonopolRepository)
         {
-            m_brewRepository = brewRepository;
+            m_vinmonopolRepository = vinmonopolRepository;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get()
+        [HttpPost]
+        [Route("updateall")]
+        public async Task<IActionResult> UpdateAll()
         {
-            return Ok(await m_brewRepository.UpdateDatabase());
+            return Ok(await m_vinmonopolRepository.GetAllProducts());
+        }
+         
+        [HttpPost]
+        [Route("updatedsince")]
+        public async Task<IActionResult> UpdatedSince(DateTime date)
+        {
+            return Ok(await m_vinmonopolRepository.GetProductsUpdatedSince(date));
         }
     }
 }

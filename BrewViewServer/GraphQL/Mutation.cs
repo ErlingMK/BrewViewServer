@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using BrewViewServer.Models;
+using BrewViewServer.Models.VinmonopolModels;
 using BrewViewServer.Repositories;
 using HotChocolate;
 using HotChocolate.AspNetCore.Authorization;
@@ -23,19 +24,19 @@ namespace BrewViewServer.GraphQL
             return await m_brewRepository.Create(brew);
         }
 
-        public async Task<UserBrew> MakeFavorite(Brew brew)
+        public async Task<bool> MakeFavorite(string productId)
         {
-            return await m_brewRepository.Favorite(brew, m_contextAccessor.HttpContext.User);
+            return await m_brewRepository.Favorite(productId);
         }
 
         public async Task<UserBrew> Rate(string productId, int rating)
         {
-            return await m_brewRepository.Rate(productId, rating, m_contextAccessor.HttpContext.User);
+            return await m_brewRepository.Rate(productId, rating);
         }
 
         public async Task<UserBrew> MakeNote(string productId, Note note)
         {
-            return await m_brewRepository.MakeNote(productId, note, m_contextAccessor.HttpContext.User);
+            return await m_brewRepository.MakeNote(productId, note);
         }
     }
 }
