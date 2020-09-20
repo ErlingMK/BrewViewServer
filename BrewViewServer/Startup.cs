@@ -1,17 +1,13 @@
-using System.Net.Http;
 using BrewViewServer.Authentication;
 using BrewViewServer.Authentication.Google;
 using BrewViewServer.GraphQL;
-using BrewViewServer.Models;
 using BrewViewServer.Repositories;
 using BrewViewServer.Services;
 using HotChocolate;
 using HotChocolate.AspNetCore;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -48,12 +44,13 @@ namespace BrewViewServer
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<IBrewRepository, BrewRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IVinmonopolRepository, VinmonopolRepository>();
+            services.AddScoped<IUserService, UserService>();
             services.AddSingleton<IGoogleAuthentication, GoogleAuthentication>();
             services.AddHttpContextAccessor();
             services.AddControllers();
             services.AddHttpClient();
         }
-
 
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,14 +62,11 @@ namespace BrewViewServer
 
             app.UseRouting();
 
-            if (env.IsProduction())
-            {
-                app.UseCustomAuthentication();
-            }
             app.UseCustomAuthentication();
 
             app.UseGraphQL();
-            app.UsePlayground();
+
+            if (env.IsDevelopment()) app.UsePlayground();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }

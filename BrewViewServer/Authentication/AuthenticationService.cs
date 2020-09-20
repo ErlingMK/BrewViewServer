@@ -10,6 +10,7 @@ using BrewViewServer.Repositories;
 using BrewViewServer.Util;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
 namespace BrewViewServer.Authentication
@@ -17,11 +18,13 @@ namespace BrewViewServer.Authentication
     public class AuthenticationService : IAuthenticationService
     {
         private readonly IGoogleAuthentication m_googleAuthentication;
+        private readonly IConfiguration m_configuration;
         private JwtSecurityTokenHandler m_tokenHandler;
 
-        public AuthenticationService(IGoogleAuthentication googleAuthentication)
+        public AuthenticationService(IGoogleAuthentication googleAuthentication, IConfiguration configuration)
         {
             m_googleAuthentication = googleAuthentication;
+            m_configuration = configuration;
         }
 
         public async Task<AuthenticateResult> AuthenticateAsync(HttpContext context, string scheme)
@@ -36,10 +39,13 @@ namespace BrewViewServer.Authentication
                 var token = m_tokenHandler.ReadJwtToken(jwt);
                 if(token.Payload.Iss == null) return AuthenticateResult.Fail("Missing issuer");
 
+                // TODO: Better way to do this? 
+                if (scheme == "admin" && token.Subject != m_configuration["GoogleAuth:adminSub"]) return AuthenticateResult.Fail("no access");
+
                 return token.Payload.Iss switch
                 {
                     "https://accounts.google.com" => AuthenticateResult.Success(
-                        new AuthenticationTicket(await ValidateGoogleToken(token, jwt), "Bearer")),
+                        new AuthenticationTicket(await ValidateGoogleToken(token, jwt, scheme), scheme)),
                     _ => AuthenticateResult.Fail("Unknown issuer")
                 };
             }
@@ -49,7 +55,8 @@ namespace BrewViewServer.Authentication
             }
         }
 
-        private async Task<ClaimsPrincipal> ValidateGoogleToken(JwtSecurityToken token, string jwtAsString)
+        private async Task<ClaimsPrincipal> ValidateGoogleToken(JwtSecurityToken token, string jwtAsString,
+            string scheme)
         {
             var certificate = await m_googleAuthentication.GetCertificate(token.Header.Kid);
 

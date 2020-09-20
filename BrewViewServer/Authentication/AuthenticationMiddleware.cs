@@ -1,12 +1,8 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Cryptography;
+﻿using System.Linq;
 using System.Threading.Tasks;
-using BrewViewServer.Util;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.IdentityModel.Tokens;
 
 namespace BrewViewServer.Authentication
 {
@@ -16,37 +12,35 @@ namespace BrewViewServer.Authentication
 
         public AuthenticationMiddleware(RequestDelegate next)
         {
-            _next = next;   
+            _next = next;
         }
 
         public async Task InvokeAsync(HttpContext user, IAuthenticationService authenticationService)
         {
             var path = user.Request.Path.ToUriComponent();
-            if (path.Contains("auth"))
+            if (path.Contains("auth") || path.Contains("playground"))
             {
                 await _next(user);
             }
             else if (path.Contains("vinmonopol"))
             {
-                // TODO: Verify admin user
-                await _next(user);
+                if (await Authenticate(user, authenticationService, "admin"))
+                    await _next(user);
+                else
+                    user.Response.StatusCode = StatusCodes.Status401Unauthorized;
             }
             else
             {
                 if (await Authenticate(user, authenticationService))
-                {
                     await _next(user);
-                }
                 else
-                {
                     user.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                }
             }
         }
 
-        private async Task<bool> Authenticate(HttpContext user, IAuthenticationService authenticationService)
+        private async Task<bool> Authenticate(HttpContext user, IAuthenticationService authenticationService, string scheme = "Bearer")
         {
-            var result = await authenticationService.AuthenticateAsync(user, "Bearer");
+            var result = await authenticationService.AuthenticateAsync(user, scheme);
 
             if (result.Succeeded)
             {

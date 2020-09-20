@@ -14,11 +14,7 @@ namespace BrewViewServer.Controllers
     [ApiController]
     public class TestController : ControllerBase
     {
-        public TestController()
-        {
-            
-        }
-
+        
         [HttpGet]
         public IActionResult Get()
         {
