@@ -121,12 +121,12 @@ namespace BrewViewServer.Repositories
 
         private async Task AddAllToDb(List<AlcoholicEntity> entity)
         {
-            entity.ForEach(async alcoholicEntity =>
+            foreach (var alcoholicEntity in entity)
             {
                 alcoholicEntity.ProductId = alcoholicEntity.Basic.ProductId;
                 await CreateFood(alcoholicEntity);
                 await CreateGrape(alcoholicEntity);
-            });
+            }
 
             var brews = entity.Select(CreateBrew).ToList();
 

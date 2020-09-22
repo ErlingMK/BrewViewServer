@@ -362,7 +362,9 @@ MigrationBackup/
 bin/
 obj/
 
-**/appsettings.json
+**/appsettings.*.json
+
+**/*.db*
 
 # Common node modules locations
 /node_modules

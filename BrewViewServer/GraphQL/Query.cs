@@ -32,9 +32,19 @@ namespace BrewViewServer.GraphQL
             return await m_repository.GetByGtin(gtin);
         }
 
-        public async Task<IList<UserBrew>> GetBrews()
+        public async Task<IList<AlcoholicEntity>> GetBrews()
         {
             return await m_repository.GetBrews();
+        }
+
+        public async Task<UserBrew> GetUserBrew(string id)
+        {
+            return await m_repository.GetUserBrew(id);
+        }
+
+        public async Task<IList<UserBrew>> GetUserBrews()
+        {
+            return await m_repository.GetUserBrews();
         }
     }
 }

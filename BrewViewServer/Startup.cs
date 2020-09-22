@@ -30,8 +30,9 @@ namespace BrewViewServer
         {
             services.AddDbContext<BrewContext>(opt =>
             {
-                opt.UseSqlite("Data Source=Brew.db");
+                //opt.UseSqlite("Data Source=Brew.db");
                 //opt.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Brew;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                opt.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection"));
             });
 
             services.AddGraphQL(
