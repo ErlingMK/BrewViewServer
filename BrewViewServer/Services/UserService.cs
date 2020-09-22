@@ -16,5 +16,7 @@ namespace BrewViewServer.Services
         {
             return m_contextAccessor.HttpContext.User.FindFirst(claim => claim.Type == ClaimTypes.NameIdentifier).Value;
         }
+
+        public string CurrentUser => m_contextAccessor.HttpContext.User.FindFirst(claim => claim.Type == ClaimTypes.NameIdentifier).Value;
     }
 }

@@ -15,5 +15,7 @@ namespace BrewViewServer.Models
 
         public IList<Note> Notes { get; set; } = new List<Note>();
         public int Rating { get; set; }
+
+        public int DrunkCount { get; set; }
     }
 }

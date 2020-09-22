@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using BrewViewServer.Models;
 using BrewViewServer.Models.VinmonopolModels;
 using BrewViewServer.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 namespace BrewViewServer.Repositories
@@ -31,23 +30,18 @@ namespace BrewViewServer.Repositories
             return await m_db.Brews.FindAsync(productId);
         }
 
-        public async Task<Brew> Create(Brew brew)
+        public async Task<UserBrew> GetUserBrew(string productId)
         {
-            var entity = await m_db.Brews.FindAsync(brew.ProductId);
-
-            if (entity == null)
-            {
-                entity = m_db.Brews.Add(brew).Entity;
-                await m_db.SaveChangesAsync();
-            }
-
-            return entity;
+            return await m_db.UserBrews.Include(brew => brew.Notes).FirstOrDefaultAsync(brew =>
+                brew.ProductId == productId && brew.UserId == m_userService.CurrentUser);
         }
 
         public async Task<bool> Favorite(string id)
         {
+            if (await GetUserBrew(id) != null) return true;
+
             var brew = await m_db.Brews.FindAsync(id);
-            var user = await m_db.Users.FindAsync();
+            var user = await m_db.Users.FindAsync(m_userService.CurrentUser);
 
             if (brew == null || user == null) return false;
 
@@ -62,30 +56,44 @@ namespace BrewViewServer.Repositories
             return true;
         }
 
-        public async Task<UserBrew> Rate(string productId, int rating)
+        public async Task<int?> UpdateDrunkCount(string productId, int count)
         {
-            var appUserBrew = await m_db.UserBrews.FindAsync(productId, m_userService.GetUserName());
+            var userBrew = await GetUserBrew(productId);
 
-            if (appUserBrew != null)
+            if (userBrew != null)
             {
-                appUserBrew.Rating = rating;
+                userBrew.DrunkCount = count;
                 await m_db.SaveChangesAsync();
             }
 
-            return appUserBrew;
+            return userBrew?.DrunkCount;
+        }
+
+        public async Task<UserBrew> Rate(string productId, int rating)
+        {
+            var userBrew = await GetUserBrew(productId);
+
+            if (userBrew != null)
+            {
+                userBrew.Rating = rating;
+                await m_db.SaveChangesAsync();
+            }
+
+            return userBrew;
         }
 
         public async Task<UserBrew> MakeNote(string productId, Note note)
         {
-            var appUserBrew = await m_db.UserBrews.FindAsync(productId, m_userService.GetUserName());
+            var userBrew = await GetUserBrew(productId);
 
-            if (appUserBrew != null)
+            if (userBrew != null)
             {
-                appUserBrew.Notes.Add(note);
+                note.Date = DateTime.Now;
+                userBrew.Notes.Add(note);
                 await m_db.SaveChangesAsync();
             }
 
-            return appUserBrew;
+            return userBrew;
         }
 
         public async Task<Brew> GetBrewByGtin(string gtin)
@@ -97,31 +105,21 @@ namespace BrewViewServer.Repositories
         {
             var brew = await m_db.Brews.SingleOrDefaultAsync(b => b.Gtin == gtin);
 
-            if (brew == null)
-            {
-                return null;
-            }
+            if (brew == null) return null;
 
-            return await m_db.AlcoholicEntities.FindAsync(brew.ProductId);
+            return await Get(brew.ProductId);
         }
 
-        public async Task<IList<UserBrew>> GetBrews()
+        public async Task<IList<AlcoholicEntity>> GetBrews()
         {
-            return await m_db.UserBrews.Where(b => b.UserId == m_userService.GetUserName())
-                .Include(b => b.Notes).ToListAsync();
+            var brews = await m_db.UserBrews.Where(b => b.UserId == m_userService.CurrentUser)
+                .Select(brew => brew.ProductId).ToListAsync();
+            return await m_db.AlcoholicEntities.Where(entity => brews.Contains(entity.ProductId)).ToListAsync();
         }
-    }
 
-    public interface IBrewRepository
-    {
-        Task<AlcoholicEntity> Get(string productId);
-        Task<Brew> GetBrew(string productId);
-        Task<Brew> Create(Brew brew);
-        Task<bool> Favorite(string id);
-        Task<UserBrew> Rate(string productId, int rating);
-        Task<UserBrew> MakeNote(string productId, Note note);
-        Task<Brew> GetBrewByGtin(string gtin);
-        Task<AlcoholicEntity> GetByGtin(string gtin);
-        Task<IList<UserBrew>> GetBrews();
+        public async Task<IList<UserBrew>> GetUserBrews()
+        {
+            return await m_db.UserBrews.Where(brew => brew.UserId == m_userService.CurrentUser).Include(brew => brew.Notes).ToListAsync();
+        }
     }
 }
