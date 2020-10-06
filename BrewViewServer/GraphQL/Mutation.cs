@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
-using BrewViewServer.Models;
-using BrewViewServer.Repositories;
+using BrewView.DatabaseModels.Models;
+using BrewView.Server.Repositories;
 using HotChocolate;
 
-namespace BrewViewServer.GraphQL
+namespace BrewView.Server.GraphQL
 {
     public class Mutation
     {

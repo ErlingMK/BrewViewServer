@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net.Http;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.WebUtilities;
 
-namespace BrewViewServer.Util
+namespace BrewView.Server.Util
 {
     public class OAuthRequestBuilder
     {

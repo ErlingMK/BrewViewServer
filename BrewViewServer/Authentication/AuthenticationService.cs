@@ -1,19 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
-using BrewViewServer.Authentication.Google;
-using BrewViewServer.Repositories;
-using BrewViewServer.Util;
+using BrewView.Server.Authentication.Google;
+using BrewView.Server.Util;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-namespace BrewViewServer.Authentication
+namespace BrewView.Server.Authentication
 {
     public class AuthenticationService : IAuthenticationService
     {

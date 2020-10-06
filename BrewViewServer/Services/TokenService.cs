@@ -2,12 +2,11 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using BrewViewServer.Models;
-using BrewViewServer.Models.User;
+using BrewView.DatabaseModels.User;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-namespace BrewViewServer.Services
+namespace BrewView.Server.Services
 {
     public class TokenService
     {

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace BrewViewServer.Authentication.Google
+namespace BrewView.Server.Authentication.Google
 {
     internal class GoogleAuthInfo
     {
