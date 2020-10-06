@@ -1,4 +1,4 @@
-﻿namespace BrewViewServer.Services
+﻿namespace BrewView.Server.Services
 {
     public interface IUserService
     {

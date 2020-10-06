@@ -1,4 +1,4 @@
-﻿namespace BrewViewServer.Util
+﻿namespace BrewView.Server.Util
 {
     public class AppConstants
     {

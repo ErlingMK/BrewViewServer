@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace BrewViewServer.Authentication.Google
+namespace BrewView.Server.Authentication.Google
 {
     public interface IGoogleAuthentication
     {

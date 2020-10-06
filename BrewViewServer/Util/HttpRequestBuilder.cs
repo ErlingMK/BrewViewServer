@@ -8,7 +8,7 @@ using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace BrewViewServer.Util
+namespace BrewView.Server.Util
 {
     public class HttpRequestBuilder
     {

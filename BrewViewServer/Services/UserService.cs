@@ -1,7 +1,7 @@
 ﻿using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 
-namespace BrewViewServer.Services
+namespace BrewView.Server.Services
 {
     public class UserService : IUserService
     {

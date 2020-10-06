@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "VinmonopolQuery": {
+      "commandName": "Project",
+      "commandLineArgs": "-mode false -since 2020-10-01"
+    }
+  }
+}

@@ -1,9 +1,10 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Threading.Tasks;
-using BrewViewServer.Controllers;
-using BrewViewServer.Models.User;
+using BrewView.DatabaseModels;
+using BrewView.DatabaseModels.User;
+using BrewView.Server.Controllers;
 
-namespace BrewViewServer.Repositories
+namespace BrewView.Server.Repositories
 {
     public class UserRepository : IUserRepository
     {

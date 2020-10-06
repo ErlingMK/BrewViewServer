@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using BrewViewServer.Models;
-using BrewViewServer.Models.VinmonopolModels;
+using BrewView.DatabaseModels.Models;
+using BrewView.DatabaseModels.Vinmonopol;
 
-namespace BrewViewServer.Repositories
+namespace BrewView.Server.Repositories
 {
     public interface IBrewRepository
     {

@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace BrewViewServer.Authentication.Google
+namespace BrewView.Server.Authentication.Google
 {
     public class GoogleAuthentication : IGoogleAuthentication
     {

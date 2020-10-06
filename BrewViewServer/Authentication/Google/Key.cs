@@ -1,4 +1,4 @@
-﻿namespace BrewViewServer.Authentication.Google
+﻿namespace BrewView.Server.Authentication.Google
 {
     public class Key
     {

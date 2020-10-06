@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using BrewViewServer.Authentication.Google;
-using BrewViewServer.Repositories;
-using BrewViewServer.Util;
+using BrewView.Server.Authentication.Google;
+using BrewView.Server.Repositories;
+using BrewView.Server.Util;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 
-namespace BrewViewServer.Controllers
+namespace BrewView.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

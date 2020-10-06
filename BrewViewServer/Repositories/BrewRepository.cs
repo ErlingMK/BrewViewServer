@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BrewViewServer.Models;
-using BrewViewServer.Models.VinmonopolModels;
-using BrewViewServer.Services;
+using BrewView.DatabaseModels;
+using BrewView.DatabaseModels.Models;
+using BrewView.DatabaseModels.Vinmonopol;
+using BrewView.Server.Services;
 using Microsoft.EntityFrameworkCore;
 
-namespace BrewViewServer.Repositories
+namespace BrewView.Server.Repositories
 {
     public class BrewRepository : IBrewRepository
     {

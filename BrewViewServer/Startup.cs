@@ -1,8 +1,10 @@
-using BrewViewServer.Authentication;
-using BrewViewServer.Authentication.Google;
-using BrewViewServer.GraphQL;
-using BrewViewServer.Repositories;
-using BrewViewServer.Services;
+using System.Reflection;
+using BrewView.DatabaseModels;
+using BrewView.Server.Authentication;
+using BrewView.Server.Authentication.Google;
+using BrewView.Server.GraphQL;
+using BrewView.Server.Repositories;
+using BrewView.Server.Services;
 using HotChocolate;
 using HotChocolate.AspNetCore;
 using Microsoft.AspNetCore.Authentication;
@@ -12,9 +14,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using AuthenticationService = BrewViewServer.Authentication.AuthenticationService;
+using AuthenticationService = BrewView.Server.Authentication.AuthenticationService;
 
-namespace BrewViewServer
+namespace BrewView.Server
 {
     public class Startup
     {
@@ -30,8 +32,8 @@ namespace BrewViewServer
         {
             services.AddDbContext<BrewContext>(opt =>
             {
-                //opt.UseSqlite("Data Source=Brew.db");
-                opt.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection"));
+                opt.UseSqlite("Data Source=../Brew.db", builder => builder.MigrationsAssembly(Assembly.GetAssembly(typeof(Startup)).ToString()));
+                //opt.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection"));
             });
 
             services.AddGraphQL(
@@ -44,7 +46,6 @@ namespace BrewViewServer
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<IBrewRepository, BrewRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IVinmonopolRepository, VinmonopolRepository>();
             services.AddScoped<IUserService, UserService>();
             services.AddSingleton<IGoogleAuthentication, GoogleAuthentication>();
             services.AddHttpContextAccessor();

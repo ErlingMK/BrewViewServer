@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BrewViewServer.Models;
-using BrewViewServer.Models.User;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿using System.Threading.Tasks;
+using BrewView.DatabaseModels.User;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BrewViewServer.Controllers
+namespace BrewView.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

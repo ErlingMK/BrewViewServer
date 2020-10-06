@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.AzureAppServices;
 using Microsoft.IdentityModel.Logging;
 
-namespace BrewViewServer
+namespace BrewView.Server
 {
     public class Program
     {

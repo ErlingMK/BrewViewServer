@@ -1,7 +1,6 @@
-﻿using System.Text.Json.Serialization;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
-namespace BrewViewServer.Controllers
+namespace BrewView.Server.Controllers
 {
     public class TokenResponse
     {
