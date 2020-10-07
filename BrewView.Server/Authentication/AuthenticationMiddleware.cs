@@ -32,7 +32,7 @@ namespace BrewView.Server.Authentication
         private static bool ShouldAuthenticate(HttpContext user)
         {
             var path = user.Request.Path.ToUriComponent().ToLower();
-            return !(path.Contains("auth") || path.Contains("playground"));
+            return !(path.Contains("auth") || path.Contains("playground") || path.Contains("error"));
         }
 
         private async Task<bool> Authenticate(HttpContext user, IAuthenticationService authenticationService)

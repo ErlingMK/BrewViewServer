@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BrewView.Server.Migrations
 {
     [DbContext(typeof(BrewContext))]
-    [Migration("20201007134522_initial")]
+    [Migration("20201007165521_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

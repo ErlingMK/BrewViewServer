@@ -18,6 +18,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using AuthenticationService = BrewView.Server.Authentication.AuthenticationService;
 
 namespace BrewView.Server
@@ -60,13 +61,21 @@ namespace BrewView.Server
             services.AddHttpContextAccessor();
             services.AddControllers();
             services.AddHttpClient();
+            services.AddLogging(builder =>
+            {
+                builder.ClearProviders();
+                builder.AddConsole();
+                builder.AddAzureWebAppDiagnostics();
+                builder.AddApplicationInsights();
+            });
         }
 
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
+            if (env.IsDevelopment()) app.UseExceptionHandler("/error/dev");
+            else app.UseExceptionHandler("/error");
 
             app.UseHttpsRedirection();
 
