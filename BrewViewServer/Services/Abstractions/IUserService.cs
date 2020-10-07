@@ -1,4 +1,4 @@
-﻿namespace BrewView.Server.Services
+﻿namespace BrewView.Server.Services.Abstractions
 {
     public interface IUserService
     {

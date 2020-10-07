@@ -531,3 +531,4 @@ obj/
 # End of https://www.toptal.com/developers/gitignore/api/csharp,visualstudio,dotnetcore
 BrewViewServer/Util/AppConstants.cs
 VinmonopolQuery/Services/AppConstants.cs
+VinmonopolQuery/Util/AppConstants.cs

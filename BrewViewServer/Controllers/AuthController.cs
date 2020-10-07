@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Net.Http;
+﻿using System;
 using System.Threading.Tasks;
-using BrewView.Server.Authentication.Google;
-using BrewView.Server.Repositories;
-using BrewView.Server.Util;
+using BrewView.DatabaseModels.User;
+using BrewView.Server.Models;
+using BrewView.Server.Repositories.Abstractions;
+using BrewView.Server.Services;
+using BrewView.Server.Services.Abstractions;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
 
 namespace BrewView.Server.Controllers
 {
@@ -14,53 +13,61 @@ namespace BrewView.Server.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly IHttpClientFactory m_clientFactory;
-        private readonly IConfiguration m_configuration;
-        private readonly IGoogleAuthentication m_googleAuthentication;
+        private readonly IOAuthService m_oAuthService;
         private readonly IUserRepository m_userRepository;
 
-        public AuthController(IHttpClientFactory clientFactory, IConfiguration configuration, IGoogleAuthentication googleAuthentication, IUserRepository userRepository)
+        public AuthController(IUserRepository userRepository, IOAuthService oAuthService)
         {
-            m_clientFactory = clientFactory;
-            m_configuration = configuration;
-            m_googleAuthentication = googleAuthentication;
             m_userRepository = userRepository;
+            m_oAuthService = oAuthService;
+        }
+
+        [HttpPost]
+        [Route("create/user")]
+        public async Task<IActionResult> Post([FromBody] CredentialsModel credentials)
+        {
+            var result = await m_userRepository.Create(credentials.Email, credentials.Password);
+
+            return result.Succeeded ? Ok(result) : Problem(result.Message);
+        }
+
+        [HttpPost]
+        [Route("signin")]
+        public async Task<IActionResult> Get([FromBody] CredentialsModel credentialsModel)
+        {
+            var response = await m_userRepository.SignIn(credentialsModel);
+
+            if (response.Succeeded) return Ok(response);
+            return BadRequest(response);
         }
 
         [HttpGet]
-        [Route("{scheme}")]
-        public async Task<IActionResult> Get([FromRoute] string scheme)
+        [Route("{provider}")]
+        public async Task<IActionResult> Get([FromRoute] string provider)
         {
-            //TODO: Verify this later
-            var generateStateValue = StringGenerator.GenerateStateValue();
-            var url = OAuthRequestBuilder.AppendQueryString(m_configuration["GoogleAuth:client_id"],
-                m_configuration["GoogleAuth:redirect_uri"],
-                new List<string> {"openid", "email"}, generateStateValue, await m_googleAuthentication.GetAuthEndpoint(),
-                "arandomnoonce");
-
-            return Redirect(url);
+            return Redirect(
+                await m_oAuthService.RedirectToAuthentication(Enum.Parse<AuthenticationProvider>(provider, true)));
         }
 
         [HttpGet]
-        [Route("redirect/g")]
-        public async Task<IActionResult> Get(string state, string code, string scope)
+        [Route("redirect/{provider}")]
+        public async Task<IActionResult> Get([FromRoute] string provider, string state, string code, string scope)
         {
-            var httpClient = m_clientFactory.CreateClient();
+            var token = await m_oAuthService.RequestToken(code, Enum.Parse<AuthenticationProvider>(provider, true));
 
-            var httpRequestMessage =
-                new HttpRequestMessage(HttpMethod.Post, await m_googleAuthentication.GetTokenEndpoint())
-                {
-                    Content = OAuthRequestBuilder.TokenRequestContent(code, m_configuration["GoogleAuth:client_id"],
-                        m_configuration["GoogleAuth:client_secret"], m_configuration["GoogleAuth:redirect_uri"])
-                };
+            var response = await m_userRepository.CreateOAuthUser(token);
 
-            var response = await httpClient.SendAsync(httpRequestMessage);
-            var json = await response.Content.ReadAsStringAsync();
-            var token = JsonConvert.DeserializeObject<TokenResponse>(json);
-            
-            await m_userRepository.Create(token);   
+            if (response.Succeeded) return Ok(response);
+            return BadRequest(response);
+        }
 
-            return Ok(token.IdToken);
+        [HttpPost]
+        [Route("refresh/{provider}")]
+        public async Task<IActionResult> Post([FromBody] TokenResponse response, [FromRoute] string provider)
+        {
+            var token = await m_oAuthService.RefreshToken(response.RefreshToken, Enum.Parse<AuthenticationProvider>(provider, true));
+
+            return Ok(token);
         }
     }
 }

@@ -1,10 +1,14 @@
 using System.Reflection;
 using BrewView.DatabaseModels;
+using BrewView.DatabaseModels.User;
 using BrewView.Server.Authentication;
+using BrewView.Server.Authentication.BrewView;
 using BrewView.Server.Authentication.Google;
 using BrewView.Server.GraphQL;
 using BrewView.Server.Repositories;
+using BrewView.Server.Repositories.Abstractions;
 using BrewView.Server.Services;
+using BrewView.Server.Services.Abstractions;
 using HotChocolate;
 using HotChocolate.AspNetCore;
 using Microsoft.AspNetCore.Authentication;
@@ -42,8 +46,9 @@ namespace BrewView.Server
                     .AddMutationType<Mutation>()
                     .Create());
 
-            services.AddScoped<TokenService>();
+            services.AddScoped<IBrewViewAuthentication, BrewViewAuthentication>();
             services.AddScoped<IAuthenticationService, AuthenticationService>();
+            services.AddScoped<IOAuthService, OAuthService>();
             services.AddScoped<IBrewRepository, BrewRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();

@@ -2,7 +2,7 @@
 
 namespace BrewView.Server.Authentication.Google
 {
-    internal class GoogleAuthInfo
+    public class GoogleAuthInfo
     {
         public bool IsEmpty => string.IsNullOrEmpty(AuthorizationEndpoint) || string.IsNullOrEmpty(TokenEndpoint) ||
                                string.IsNullOrEmpty(CertEndpoint);
@@ -15,5 +15,7 @@ namespace BrewView.Server.Authentication.Google
 
         [JsonProperty("jwks_uri")] 
         public string CertEndpoint { get; set; }
+
+        public string Issuer { get; set; }
     }
 }

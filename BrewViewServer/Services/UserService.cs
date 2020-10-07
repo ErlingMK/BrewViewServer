@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using BrewView.Server.Services.Abstractions;
 using Microsoft.AspNetCore.Http;
 
 namespace BrewView.Server.Services

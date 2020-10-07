@@ -16,30 +16,28 @@ namespace BrewView.Server.Authentication
 
         public async Task InvokeAsync(HttpContext user, IAuthenticationService authenticationService)
         {
-            var path = user.Request.Path.ToUriComponent();
-            if (path.Contains("auth") || path.Contains("playground"))
-            {
-                await _next(user);
-            }
-            else if (path.Contains("vinmonopol"))
-            {
-                if (await Authenticate(user, authenticationService, "admin"))
-                    await _next(user);
-                else
-                    user.Response.StatusCode = StatusCodes.Status401Unauthorized;
-            }
-            else
+            if (ShouldAuthenticate(user))
             {
                 if (await Authenticate(user, authenticationService))
                     await _next(user);
                 else
                     user.Response.StatusCode = StatusCodes.Status401Unauthorized;
             }
+            else
+            {
+                await _next(user);
+            }
         }
 
-        private async Task<bool> Authenticate(HttpContext user, IAuthenticationService authenticationService, string scheme = "Bearer")
+        private static bool ShouldAuthenticate(HttpContext user)
         {
-            var result = await authenticationService.AuthenticateAsync(user, scheme);
+            var path = user.Request.Path.ToUriComponent().ToLower();
+            return !(path.Contains("auth") || path.Contains("playground"));
+        }
+
+        private async Task<bool> Authenticate(HttpContext user, IAuthenticationService authenticationService)
+        {
+            var result = await authenticationService.AuthenticateAsync(user, string.Empty);
 
             if (result.Succeeded)
             {

@@ -7,7 +7,6 @@ namespace BrewView.Server.Controllers
     [ApiController]
     public class TestController : ControllerBase
     {
-        
         [HttpGet]
         public IActionResult Get()
         {
@@ -16,7 +15,8 @@ namespace BrewView.Server.Controllers
 
             return new OkObjectResult(new
             {
-                id.Value
+                user.Identity.Name,
+                id?.Value
             });
         }
     }

@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace BrewView.Server.Authentication.Google
 {
@@ -7,5 +9,6 @@ namespace BrewView.Server.Authentication.Google
         Task<string> GetAuthEndpoint();
         Task<string> GetTokenEndpoint();
         Task<Key> GetCertificate(string kid);
+        Task<ClaimsPrincipal> ValidateGoogleToken(JwtSecurityToken token, string jwtAsString);
     }
 }

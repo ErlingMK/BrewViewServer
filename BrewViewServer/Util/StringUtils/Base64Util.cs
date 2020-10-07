@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BrewView.Server.Util
+namespace BrewView.Server.Util.StringUtils
 {
     public class Base64Util
     {

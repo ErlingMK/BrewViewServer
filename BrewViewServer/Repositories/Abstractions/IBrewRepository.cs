@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using BrewView.DatabaseModels.Models;
 using BrewView.DatabaseModels.Vinmonopol;
 
-namespace BrewView.Server.Repositories
+namespace BrewView.Server.Repositories.Abstractions
 {
     public interface IBrewRepository
     {

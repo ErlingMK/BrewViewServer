@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using BrewView.DatabaseModels.Models;
 using BrewView.Server.Repositories;
+using BrewView.Server.Repositories.Abstractions;
 using HotChocolate;
 
 namespace BrewView.Server.GraphQL

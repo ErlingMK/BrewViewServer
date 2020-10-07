@@ -2,48 +2,48 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
+using BrewView.Server.Authentication.BrewView;
 using BrewView.Server.Authentication.Google;
-using BrewView.Server.Util;
+using BrewView.Server.Services.Abstractions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
 namespace BrewView.Server.Authentication
 {
     public class AuthenticationService : IAuthenticationService
     {
+        private readonly IBrewViewAuthentication m_brewViewAuthentication;
         private readonly IGoogleAuthentication m_googleAuthentication;
-        private readonly IConfiguration m_configuration;
-        private JwtSecurityTokenHandler m_tokenHandler;
+        private readonly JwtSecurityTokenHandler m_tokenHandler;
 
-        public AuthenticationService(IGoogleAuthentication googleAuthentication, IConfiguration configuration)
+        public AuthenticationService(IGoogleAuthentication googleAuthentication,
+            IBrewViewAuthentication brewViewAuthentication)
         {
             m_googleAuthentication = googleAuthentication;
-            m_configuration = configuration;
+            m_brewViewAuthentication = brewViewAuthentication;
+            m_tokenHandler = new JwtSecurityTokenHandler();
         }
 
         public async Task<AuthenticateResult> AuthenticateAsync(HttpContext context, string scheme)
         {
-            if (!context.Request.Headers.TryGetValue("Authorization", out var values)) return AuthenticateResult.Fail("Missing bearer token");
+            if (!context.Request.Headers.TryGetValue("Authorization", out var values))
+                return AuthenticateResult.Fail("Missing bearer token");
 
             var jwt = values.ToString().Split(' ').LastOrDefault();
 
             try
             {
-                m_tokenHandler = new JwtSecurityTokenHandler();
                 var token = m_tokenHandler.ReadJwtToken(jwt);
-                if(token.Payload.Iss == null) return AuthenticateResult.Fail("Missing issuer");
-
-                // TODO: Better way to do this? 
-                if (scheme == "admin" && token.Subject != m_configuration["GoogleAuth:adminSub"]) return AuthenticateResult.Fail("no access");
+                if (token.Payload.Iss == null) return AuthenticateResult.Fail("Missing issuer");
 
                 return token.Payload.Iss switch
                 {
                     "https://accounts.google.com" => AuthenticateResult.Success(
-                        new AuthenticationTicket(await ValidateGoogleToken(token, jwt, scheme), scheme)),
+                        new AuthenticationTicket(await ValidateGoogleToken(token, jwt), scheme)),
+                    "https://brewview.com" => AuthenticateResult.Success(
+                        new AuthenticationTicket(ValidateBrewViewToken(token, jwt), scheme)),
                     _ => AuthenticateResult.Fail("Unknown issuer")
                 };
             }
@@ -51,32 +51,6 @@ namespace BrewView.Server.Authentication
             {
                 return AuthenticateResult.Fail(e);
             }
-        }
-
-        private async Task<ClaimsPrincipal> ValidateGoogleToken(JwtSecurityToken token, string jwtAsString,
-            string scheme)
-        {
-            var certificate = await m_googleAuthentication.GetCertificate(token.Header.Kid);
-
-            var tokenValidationParameters = new TokenValidationParameters
-            {
-                RequireExpirationTime = true,
-                RequireSignedTokens = true,
-                ValidateAudience = false,
-                ValidateIssuer = false,
-                ValidateLifetime = false
-            };
-
-            using var rsa = new RSACryptoServiceProvider();
-            rsa.ImportParameters(
-                new RSAParameters
-                {
-                    Modulus = Base64Util.FromBase64Url(certificate.N),
-                    Exponent = Base64Util.FromBase64Url(certificate.E)
-                });
-            tokenValidationParameters.IssuerSigningKey = new RsaSecurityKey(rsa);
-
-            return m_tokenHandler.ValidateToken(jwtAsString, tokenValidationParameters, out var validatedToken);
         }
 
         public Task ChallengeAsync(HttpContext context, string scheme, AuthenticationProperties properties)
@@ -89,7 +63,8 @@ namespace BrewView.Server.Authentication
             throw new NotImplementedException();
         }
 
-        public Task SignInAsync(HttpContext context, string scheme, ClaimsPrincipal principal, AuthenticationProperties properties)
+        public Task SignInAsync(HttpContext context, string scheme, ClaimsPrincipal principal,
+            AuthenticationProperties properties)
         {
             throw new NotImplementedException();
         }
@@ -97,6 +72,16 @@ namespace BrewView.Server.Authentication
         public Task SignOutAsync(HttpContext context, string scheme, AuthenticationProperties properties)
         {
             throw new NotImplementedException();
+        }
+
+        private ClaimsPrincipal ValidateBrewViewToken(JwtSecurityToken token, string jwt)
+        {
+            return m_brewViewAuthentication.ValidateToken(token, jwt);
+        }
+
+        private async Task<ClaimsPrincipal> ValidateGoogleToken(JwtSecurityToken token, string jwtAsString)
+        {
+            return await m_googleAuthentication.ValidateGoogleToken(token, jwtAsString);
         }
     }
 }
