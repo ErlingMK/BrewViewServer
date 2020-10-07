@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrewView.Server", "BrewView
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrewView.DatabaseModels", "BrewView.DatabaseModels\BrewView.DatabaseModels.csproj", "{372E00CA-38F2-44BC-9ED9-5A66E2436DBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VinmonopolQuery", "VinmonopolQuery\VinmonopolQuery.csproj", "{F74408B4-1B47-4042-B377-F966BDECFF88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VinmonopolQuery", "VinmonopolQuery\VinmonopolQuery.csproj", "{F74408B4-1B47-4042-B377-F966BDECFF88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

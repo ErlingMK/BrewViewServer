@@ -14,11 +14,7 @@ namespace VinmonopolQuery
             serviceRegistry.Register<HttpClient>(new PerContainerLifetime());
             serviceRegistry.Register(factory =>
             {
-#if DEBUG
-                var builder = new DbContextOptionsBuilder().UseSqlite(Program.AppSettings.DbConnectionSqlite);
-#else
-                var builder = new DbContextOptionsBuilder().UseSqlServer(Program.AppSettings.DbConnection);
-#endif
+                var builder = Program.AppSettings.UseSqlite ? new DbContextOptionsBuilder().UseSqlite(Program.AppSettings.DbConnectionSqlite) : new DbContextOptionsBuilder().UseSqlServer(Program.AppSettings.DbConnection);
                 var brewContext = new BrewContext(builder.Options);
                 return brewContext;
             });

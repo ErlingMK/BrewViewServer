@@ -10,7 +10,7 @@ namespace BrewView.Server.Authentication
                 RequireExpirationTime = true,
                 RequireSignedTokens = true,
                 ValidateAudience = false,
-                ValidateIssuer = true,
+                ValidateIssuer = false,
                 ValidateLifetime = false
             };
     }

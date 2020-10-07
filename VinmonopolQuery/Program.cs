@@ -25,7 +25,7 @@ namespace VinmonopolQuery
                 throw;
             }
 
-            AppSettings = JsonConvert.DeserializeObject<AppSettings>(await File.ReadAllTextAsync("appsettings.json"));
+            AppSettings = JsonConvert.DeserializeObject<AppSettings>(await File.ReadAllTextAsync("appsettings.development.json"));
 
             var serviceContainer = new ServiceContainer(options => options.EnablePropertyInjection = false);
             serviceContainer.RegisterFrom<CompositionRoot>();
