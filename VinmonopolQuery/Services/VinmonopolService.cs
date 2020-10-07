@@ -31,8 +31,8 @@ namespace VinmonopolQuery.Services
                 Console.WriteLine("Fetching from vinmonopolet...");
 
                 var httpRequestBuilder = new HttpRequestBuilder().WithMethod(HttpMethod.Get)
-                    .WithRequestUri($"{AppConstants.Vinmonopol.ApiUrl}{AppConstants.Vinmonopol.ProductDetailsEndPoint}")
-                    .AddHeader(AppConstants.Vinmonopol.ApiKeyName, AppConstants.Vinmonopol.ApiKey)
+                    .WithRequestUri($"{Program.AppSettings.ApiUrl}{Program.AppSettings.ProductDetailsEndPoint}")
+                    .AddHeader(Program.AppSettings.ApiKeyName, Program.AppSettings.ApiKey)
                     .AddQueryParameter("maxResults", 30000);
 
                 if (!getAll) httpRequestBuilder.AddQueryParameter("changedSince", dateTime);
