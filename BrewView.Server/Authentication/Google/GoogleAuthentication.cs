@@ -65,6 +65,8 @@ namespace BrewView.Server.Authentication.Google
         {
             var certificate = await GetCertificate(token.Header.Kid);
 
+            if (certificate == null) throw new SecurityTokenException("Missing certificates");
+
             var tokenValidationParameters = TokenValidation.TokenValidationParameters;
 
             using var rsa = new RSACryptoServiceProvider();

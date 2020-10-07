@@ -1,6 +1,5 @@
 using System.Reflection;
 using BrewView.DatabaseModels;
-using BrewView.DatabaseModels.User;
 using BrewView.Server.Authentication;
 using BrewView.Server.Authentication.BrewView;
 using BrewView.Server.Authentication.Google;
@@ -11,6 +10,7 @@ using BrewView.Server.Services;
 using BrewView.Server.Services.Abstractions;
 using HotChocolate;
 using HotChocolate.AspNetCore;
+using HotChocolate.AspNetCore.Playground;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -36,8 +36,12 @@ namespace BrewView.Server
         {
             services.AddDbContext<BrewContext>(opt =>
             {
-                opt.UseSqlite("Data Source=../Brew.db", builder => builder.MigrationsAssembly(Assembly.GetAssembly(typeof(Startup)).ToString()));
-                //opt.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection"));
+#if DEBUG
+                opt.UseSqlite("Data Source=../Brew.db",
+                    builder => builder.MigrationsAssembly(Assembly.GetAssembly(typeof(Startup)).ToString()));
+#else
+                opt.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection"), builder => builder.MigrationsAssembly(Assembly.GetAssembly(typeof(Startup)).ToString()));
+#endif
             });
 
             services.AddGraphQL(
@@ -70,9 +74,9 @@ namespace BrewView.Server
 
             app.UseCustomAuthentication();
 
-            app.UseGraphQL();
+            app.UseGraphQL("/graphql");
 
-            if (env.IsDevelopment()) app.UsePlayground();
+            //if (env.IsDevelopment()) app.UsePlayground(new PlaygroundOptions(){QueryPath = "/g"});
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }

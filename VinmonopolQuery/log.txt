@@ -10,3 +10,1966 @@ Log Entry : 1:24:02 PM Wednesday, October 7, 2020: Added grapebrews: 0
 Log Entry : 1:24:02 PM Wednesday, October 7, 2020: Added brews: 0
 
 Log Entry : 1:24:02 PM Wednesday, October 7, 2020: Added products: 0
+
+Log Entry : 3:25:40 PM Wednesday, October 7, 2020: Fetching from vinmonopolet...
+
+Log Entry : 3:26:16 PM Wednesday, October 7, 2020: Retrieved count: 21650
+
+Log Entry : 3:26:16 PM Wednesday, October 7, 2020: SQLite Error 1: 'no such table: Foods'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at VinmonopolQuery.Services.VinmonopolService.CreateFood(AlcoholicEntity entity) in C:\Users\erlin\source\repos\BrewViewServer\VinmonopolQuery\Services\VinmonopolService.cs:line 171
+   at VinmonopolQuery.Services.VinmonopolService.AddAllToDb(List`1 entity) in C:\Users\erlin\source\repos\BrewViewServer\VinmonopolQuery\Services\VinmonopolService.cs:line 112
+   at VinmonopolQuery.Services.VinmonopolService.GetProducts(Boolean getAll, String dateTime) in C:\Users\erlin\source\repos\BrewViewServer\VinmonopolQuery\Services\VinmonopolService.cs:line 53
+
+Log Entry : 3:26:54 PM Wednesday, October 7, 2020: Fetching from vinmonopolet...
+
+Log Entry : 3:27:32 PM Wednesday, October 7, 2020: Retrieved count: 21650
+
+Log Entry : 3:27:33 PM Wednesday, October 7, 2020: Food created: Lam og sau
+
+Log Entry : 3:27:33 PM Wednesday, October 7, 2020: Food created: Svinekjøtt
+
+Log Entry : 3:27:33 PM Wednesday, October 7, 2020: Food created: Ost
+
+Log Entry : 3:27:33 PM Wednesday, October 7, 2020: Food created: Fisk
+
+Log Entry : 3:27:33 PM Wednesday, October 7, 2020: Food created: Dessert, kake, frukt
+
+Log Entry : 3:27:33 PM Wednesday, October 7, 2020: Grape created: Tinta Barroca
+
+Log Entry : 3:27:33 PM Wednesday, October 7, 2020: Grape created: Tinta Roriz
+
+Log Entry : 3:27:33 PM Wednesday, October 7, 2020: Grape created: Tinto Cão
+
+Log Entry : 3:27:33 PM Wednesday, October 7, 2020: Grape created: Touriga Franca
+
+Log Entry : 3:27:33 PM Wednesday, October 7, 2020: Grape created: Touriga Nacional
+
+Log Entry : 3:27:33 PM Wednesday, October 7, 2020: Grape created: Ugni Blanc
+
+Log Entry : 3:27:33 PM Wednesday, October 7, 2020: Grape created: Colombard
+
+Log Entry : 3:27:33 PM Wednesday, October 7, 2020: Grape created: Folle Blanche
+
+Log Entry : 3:27:33 PM Wednesday, October 7, 2020: Grape created: Palomino
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Pedro Ximénez
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Food created: Grønnsaker
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Food created: Aperitiff/avec
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Muscat (Moscatel, Moscato)
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Food created: Lyst kjøtt
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Cabernet Franc
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Cabernet Sauvignon
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Merlot
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Grenache
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Syrah
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Carignan
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Cinsault
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Mourvèdre
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Sangiovese
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Food created: Storfe
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Food created: Storvilt
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Castelão
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Tinta Amarela
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Food created: Småvilt og fugl
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Graciano (Bovale)
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Mazuelo
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Tempranillo (Tinto del Pais)
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Garnacha
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Canaiolo
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Gewürztraminer
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Food created: Skalldyr
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Sauvignon Blanc
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Riesling
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Rivaner
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Kerner
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Müller-Thurgau
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Silvaner
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Garganega
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Parellada
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Muscat of Alexandria
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Arinto
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Azal
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Loureio
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Trajadura
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Muscadelle
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Sémillon
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Baga
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Rufete
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Aragónez
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Trincadeira
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Chardonnay
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Pinot Meunier
+
+Log Entry : 3:27:34 PM Wednesday, October 7, 2020: Grape created: Pinot Noir
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Macabeo
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Xarel·lo
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Lambrusco
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Chenin Blanc
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Nero d'Avola
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Corvina
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Rondinella
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Barbera
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Brunello
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Alvarinho
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Montepulciano
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Moscato
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Molinara
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Glera
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Nebbiolo
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Petite Syrah
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Viognier
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Corvinone
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Petit Verdot
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Shiraz
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Savagnin
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Inzolia
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Ciliegiolo
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Alicante Bouschet
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Zinfandel
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Vespolina
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Blaufränkisch
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Cortese
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Sousão
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Trebbiano
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Malvasia
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Colorino
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Vaccarese
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Pinot Nero
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Grüner Veltliner
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Bobal
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Mauzac
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Bouvier
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Welschriesling
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Verdelho
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: St. Laurent
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Zweigelt
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Pinot Gris
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Baco
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Vigiriega
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Romé
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Pinot Blanc
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Clairette
+
+Log Entry : 3:27:35 PM Wednesday, October 7, 2020: Grape created: Catarratto
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Grillo
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Cariñena
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Viura
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Albariño
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Grenache Blanc
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Roussanne
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Muscadet (Melon de Bourgogne)
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Gamay
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Verdicchio
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Aligoté
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Monastrell
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Sagrantino
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Lemberger
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Turbiana
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Malbec
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Carménère
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Bourboulenc
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Marsanne
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Pinot Grigio
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Gros Manseng
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Dolcetto
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Marzemino
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Groppello
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Vermentino
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Nerello Mascalese
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Timorasso
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Uva Rara
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Albanello
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Cinsaut
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Zibibbo
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Arneis
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Pinotage
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Carricante
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Grecanico
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Mataro
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Alfrocheiro Preto
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Jaen
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Rolle
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Grechetto
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Assyrtiko
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Poulsard
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Oseleta
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Rabigato
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Roupeiro
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Viosinho
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Carignane
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Ruby Cabernet
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Airén
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Merseguera
+
+Log Entry : 3:27:36 PM Wednesday, October 7, 2020: Grape created: Gouveio
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Roditis
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Croatina
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Vespaiola
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Counoise
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Tinto Fino (Tempranillo)
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Furmint
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Hárslevelu
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Cencibel
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Nosiola
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Negrara
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Raboso
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Spätburgunder
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Brachetto
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Tocai Friulano
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Tannat
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Zéta (Oremus)
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Mencia
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Teroldego
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Sumoll
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Nerello Cappuccio
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Torrontés
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Primitivo
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Minella bianca
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Blauer Wildbacher
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Bonarda
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Chiavennasca
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Godello
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Treixadura
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Aglianico
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Malmsey (Malvasia)
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Sylvaner
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Savagnin Blanc
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Trousseau (Merenzao)
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Tinta Negra Mole
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Terret Gris
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Garnacha Blanca
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Vernaccia
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Grenache Gris
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Rossese
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Auxerrois Blanc
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Refosco
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Manzoni Bianco
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Tempranillo Blanco
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Verdejo
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Negroamaro
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Lagrein
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Grasparossa
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Savatiano
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Xynomavro
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Pugnitello
+
+Log Entry : 3:27:37 PM Wednesday, October 7, 2020: Grape created: Fernanda
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Trebianello
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Frappato
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Periquita
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Tinta Miuda
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Camarate
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Listan (Palomino Fino)
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Côdega do Larinho
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Mammolo
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Maria Gomes
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Sercial
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Erbaluce
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Fernão Pires
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Moscatell
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Grauburgunder
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Canaiolo Nero
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Romorantin
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Prieto Picudo
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Carignan Blanc
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Muscat Blanc
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Carignan Gris
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Pecorino
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Pigato
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Cannonau
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Pelaverga
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Durella
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Malbo Gentile
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Misket
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Traminer
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Pinot Bianco
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Bual
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Perricone
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Pais
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Schioppettino
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Garnatxa
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Trepat
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Bical
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Weissburgunder
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Négrette (Folle Noir)
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Tinta del Toro (Tempranillo)
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Tinta del Pais
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Tibouren
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Petit Manseng
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Incrocio Manzoni
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Favorita
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Solaris
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Grolleau
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: Verdiso
+
+Log Entry : 3:27:38 PM Wednesday, October 7, 2020: Grape created: 
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Auxerrois
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Ancellotta (Lancellotta)
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Caladoc
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Nero di Troia
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Lacrima
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Blauer Portugieser
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Sárga Muskotály
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Síria (Doña Blanca)
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Dornfelder
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Callet
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Debina
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Encruzado
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Greco
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Caberlot
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Grand Noir
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Freisa
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Krassato
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Gutedel
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Prugnolo Gentile (Sangiovese)
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Falanghina
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Fiano
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Rieslaner
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Alvarelhão
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Groslot
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Friulano (Tai)
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Verduzzo
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Picpoul
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Caino Tinto (Borracal)
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Tinta National (Tempranillo)
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Ansonica
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Frühburgunder
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Sauvignon Gris
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Pineau d'Aunis
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Vranac
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Tribidrag (Kratosija)
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Plavac Mali
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Altesse
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Ribolla
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Roter Veltliner
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Frühburgunder (P Noir Précoce)
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Albillo
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Caino Blanco
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Ramisco
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Ribolla Gialla
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Marselan
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Bukettraube
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Jacquère
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Mondeuse
+
+Log Entry : 3:27:39 PM Wednesday, October 7, 2020: Grape created: Obaideh
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Merwah
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Chasselas
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Rossignola
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Gaglioppo
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Calabrese (Nero d'Avola)
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Scheurebe
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Tokay
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Nuragus
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Carignano
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Monica
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Tintilia
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Listán Negro
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Aramon
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Blatina
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Zilavka
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Vinhão (Sousón)
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Xarel·lo Rosado
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Cerceal
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Bianchello del Metauro
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Maturana (Trousseau)
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Malagousia
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Ruché
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Kadarka
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Kékfrankos
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Colombana
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Schiava
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Moscato Giallo (Yellow Muscat)
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Canaioli Bianco
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Petit Meslier
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Arbane
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Muscat Frontignan
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Chiavennasca (Nebbiolo)
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Maturana Blanca
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Muscardin
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Rebo
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Dindarella
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Bacca Bianca Tipica
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Lambrusco Barghi
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Spergola
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Arrufiac
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Petit Courbu
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Grignolino
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Pignolo
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Vitovska
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Nascetta
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Agiorgitiko
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Mandó
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Arbois
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Cot
+
+Log Entry : 3:27:40 PM Wednesday, October 7, 2020: Grape created: Aleatico
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Muskateller
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Mavrud
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Feteasca Alba
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Feteasca Neagra
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Barbarossa
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Hondarribi Zuri
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Corinto Nero
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Albalonga
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Tinta Caiada
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Bastardo
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Italia
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Valdiguie (Gros Auxerrois)
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Verdello
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Areni Noir
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Cabernet blanc
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Fer
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Aspiran Noir (Ribeyrenc)
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Prosecco
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Ortrugo
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Hondarrabi Beltza
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Moscatel Branco
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Babeasca Neagra
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Avesso
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Schwarzriesling
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Petite Arvine
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Cornalin
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Vilana
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Kotsifali
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Plyto
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Limnio
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Passerina
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Riesling Italico
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Nocera
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Courbu
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Brancellao (Alvarelhao)
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Chasan
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Cococciola
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Antão Vaz
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Zierfandler
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Neuburger
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Balciana
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Oeillade Noire
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Olaszrizling
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Gros Plant
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Foglia Tonda
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Picolit
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Cesanese
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Juhfark
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Gamaret
+
+Log Entry : 3:27:41 PM Wednesday, October 7, 2020: Grape created: Irsai Oliver
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Cserszegi fűszeres
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Persan
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Sauvignon Vert
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Egiodola
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Lazki Rizling
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Zelen
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Bacchus
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Lledoner Pelut
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Moravia Agria
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Albana
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Famoso
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Dinka
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Rotgipfler
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Temjanika
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Bombino Bianco
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Seara Nova
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: MtSvane (Kakhuri)
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Saperavi, rød
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Kisi
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Rondo
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Albarossa
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Trousseau Gris
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Koshu
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Frontignan
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Barbera Bianca
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Mouraton (Alicante Bouschet)
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Donzelinho Branco
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Dimiat
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Rubin
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Moschofilero
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Vital
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Marawi
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Muscat Ottonel
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Elbling
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Nielluccio
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Devin
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Bombino Nero
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Piquepoul (Picapoll)
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Drupeggio (Canaiolo Bianco)
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Espadeiro
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Flora
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Ortega
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Schönburger
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Lambrusco Grasparossa
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Lado
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Huxelrebe
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Saperavi
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Rkatsiteli
+
+Log Entry : 3:27:42 PM Wednesday, October 7, 2020: Grape created: Arinarnoa
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Fer Servadou
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Pedral
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Albarín blanco
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Petit Rouge
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Fumin
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Pinotin
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Trincadeira das Pratas
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Roesler
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Sauvignon Kretos
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Soreli
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Fleurtai
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Coda di Volpe Bianco
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Minutolo
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Piedirosso
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Blauburger
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Moreto
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Tai Rosso
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Terrantez
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Souvignier Gris
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Garnacha Tintorera
+
+Log Entry : 3:27:43 PM Wednesday, October 7, 2020: Grape created: Mandelaria
+
+Log Entry : 3:27:46 PM Wednesday, October 7, 2020: Added foodbrews: 52802
+
+Log Entry : 3:27:48 PM Wednesday, October 7, 2020: Added grapebrews: 28234
+
+Log Entry : 3:28:34 PM Wednesday, October 7, 2020: Added brews: 21650
+
+Log Entry : 3:28:34 PM Wednesday, October 7, 2020: Added products: 21650
+
+Log Entry : 3:48:58 PM Wednesday, October 7, 2020: Fetching from vinmonopolet...
+
+Log Entry : 3:49:35 PM Wednesday, October 7, 2020: Retrieved count: 21650
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Food created: Lam og sau
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Food created: Svinekjøtt
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Food created: Ost
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Food created: Fisk
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Food created: Dessert, kake, frukt
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Tinta Barroca
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Tinta Roriz
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Tinto Cão
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Touriga Franca
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Touriga Nacional
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Ugni Blanc
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Colombard
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Folle Blanche
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Palomino
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Pedro Ximénez
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Food created: Grønnsaker
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Food created: Aperitiff/avec
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Muscat (Moscatel, Moscato)
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Food created: Lyst kjøtt
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Cabernet Franc
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Cabernet Sauvignon
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Merlot
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Grenache
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Syrah
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Carignan
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Cinsault
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Mourvèdre
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Sangiovese
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Food created: Storfe
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Food created: Storvilt
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Castelão
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Tinta Amarela
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Food created: Småvilt og fugl
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Graciano (Bovale)
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Mazuelo
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Tempranillo (Tinto del Pais)
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Garnacha
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Canaiolo
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Gewürztraminer
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Food created: Skalldyr
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Sauvignon Blanc
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Riesling
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Rivaner
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Kerner
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Müller-Thurgau
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Silvaner
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Garganega
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Parellada
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Muscat of Alexandria
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Arinto
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Azal
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Loureio
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Trajadura
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Muscadelle
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Sémillon
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Baga
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Rufete
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Aragónez
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Trincadeira
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Chardonnay
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Pinot Meunier
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Pinot Noir
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Macabeo
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Xarel·lo
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Lambrusco
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Chenin Blanc
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Nero d'Avola
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Corvina
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Rondinella
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Barbera
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Brunello
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Alvarinho
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Montepulciano
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Moscato
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Molinara
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Glera
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Nebbiolo
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Petite Syrah
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Viognier
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Corvinone
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Petit Verdot
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Shiraz
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Savagnin
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Inzolia
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Ciliegiolo
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Alicante Bouschet
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Zinfandel
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Vespolina
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Blaufränkisch
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Cortese
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Sousão
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Trebbiano
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Malvasia
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Colorino
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Vaccarese
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Pinot Nero
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Grüner Veltliner
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Bobal
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Mauzac
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Bouvier
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Welschriesling
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: Verdelho
+
+Log Entry : 3:49:36 PM Wednesday, October 7, 2020: Grape created: St. Laurent
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Zweigelt
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Pinot Gris
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Baco
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Vigiriega
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Romé
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Pinot Blanc
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Clairette
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Catarratto
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Grillo
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Cariñena
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Viura
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Albariño
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Grenache Blanc
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Roussanne
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Muscadet (Melon de Bourgogne)
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Gamay
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Verdicchio
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Aligoté
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Monastrell
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Sagrantino
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Lemberger
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Turbiana
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Malbec
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Carménère
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Bourboulenc
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Marsanne
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Pinot Grigio
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Gros Manseng
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Dolcetto
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Marzemino
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Groppello
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Vermentino
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Nerello Mascalese
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Timorasso
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Uva Rara
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Albanello
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Cinsaut
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Zibibbo
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Arneis
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Pinotage
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Carricante
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Grecanico
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Mataro
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Alfrocheiro Preto
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Jaen
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Rolle
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Grechetto
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Assyrtiko
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Poulsard
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Oseleta
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Rabigato
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Roupeiro
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Viosinho
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Carignane
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Ruby Cabernet
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Airén
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Merseguera
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Gouveio
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Roditis
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Croatina
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Vespaiola
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Counoise
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Tinto Fino (Tempranillo)
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Furmint
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Hárslevelu
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Cencibel
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Nosiola
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Negrara
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Raboso
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Spätburgunder
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Brachetto
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Tocai Friulano
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Tannat
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Zéta (Oremus)
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Mencia
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Teroldego
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Sumoll
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Nerello Cappuccio
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Torrontés
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Primitivo
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Minella bianca
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Blauer Wildbacher
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Bonarda
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Chiavennasca
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Godello
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Treixadura
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Aglianico
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Malmsey (Malvasia)
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Sylvaner
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Savagnin Blanc
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Trousseau (Merenzao)
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Tinta Negra Mole
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Terret Gris
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Garnacha Blanca
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Vernaccia
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Grenache Gris
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Rossese
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Auxerrois Blanc
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Refosco
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Manzoni Bianco
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Tempranillo Blanco
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Verdejo
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Negroamaro
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Lagrein
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Grasparossa
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Savatiano
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Xynomavro
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Pugnitello
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Fernanda
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Trebianello
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Frappato
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Periquita
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Tinta Miuda
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Camarate
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Listan (Palomino Fino)
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Côdega do Larinho
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Mammolo
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Maria Gomes
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Sercial
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Erbaluce
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Fernão Pires
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Moscatell
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Grauburgunder
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Canaiolo Nero
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Romorantin
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Prieto Picudo
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Carignan Blanc
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Muscat Blanc
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Carignan Gris
+
+Log Entry : 3:49:37 PM Wednesday, October 7, 2020: Grape created: Pecorino
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Pigato
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Cannonau
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Pelaverga
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Durella
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Malbo Gentile
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Misket
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Traminer
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Pinot Bianco
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Bual
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Perricone
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Pais
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Schioppettino
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Garnatxa
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Trepat
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Bical
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Weissburgunder
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Négrette (Folle Noir)
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Tinta del Toro (Tempranillo)
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Tinta del Pais
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Tibouren
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Petit Manseng
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Incrocio Manzoni
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Favorita
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Solaris
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Grolleau
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Verdiso
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: 
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Auxerrois
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Ancellotta (Lancellotta)
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Caladoc
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Nero di Troia
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Lacrima
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Blauer Portugieser
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Sárga Muskotály
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Síria (Doña Blanca)
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Dornfelder
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Callet
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Debina
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Encruzado
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Greco
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Caberlot
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Grand Noir
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Freisa
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Krassato
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Gutedel
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Prugnolo Gentile (Sangiovese)
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Falanghina
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Fiano
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Rieslaner
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Alvarelhão
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Groslot
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Friulano (Tai)
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Verduzzo
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Picpoul
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Caino Tinto (Borracal)
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Tinta National (Tempranillo)
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Ansonica
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Frühburgunder
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Sauvignon Gris
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Pineau d'Aunis
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Vranac
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Tribidrag (Kratosija)
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Plavac Mali
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Altesse
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Ribolla
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Roter Veltliner
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Frühburgunder (P Noir Précoce)
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Albillo
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Caino Blanco
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Ramisco
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Ribolla Gialla
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Marselan
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Bukettraube
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Jacquère
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Mondeuse
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Obaideh
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Merwah
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Chasselas
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Rossignola
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Gaglioppo
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Calabrese (Nero d'Avola)
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Scheurebe
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Tokay
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Nuragus
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Carignano
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Monica
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Tintilia
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Listán Negro
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Aramon
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Blatina
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Zilavka
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Vinhão (Sousón)
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Xarel·lo Rosado
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Cerceal
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Bianchello del Metauro
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Maturana (Trousseau)
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Malagousia
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Ruché
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Kadarka
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Kékfrankos
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Colombana
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Schiava
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Moscato Giallo (Yellow Muscat)
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Canaioli Bianco
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Petit Meslier
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Arbane
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Muscat Frontignan
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Chiavennasca (Nebbiolo)
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Maturana Blanca
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Muscardin
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Rebo
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Dindarella
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Bacca Bianca Tipica
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Lambrusco Barghi
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Spergola
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Arrufiac
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Petit Courbu
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Grignolino
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Pignolo
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Vitovska
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Nascetta
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Agiorgitiko
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Mandó
+
+Log Entry : 3:49:38 PM Wednesday, October 7, 2020: Grape created: Arbois
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Cot
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Aleatico
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Muskateller
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Mavrud
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Feteasca Alba
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Feteasca Neagra
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Barbarossa
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Hondarribi Zuri
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Corinto Nero
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Albalonga
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Tinta Caiada
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Bastardo
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Italia
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Valdiguie (Gros Auxerrois)
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Verdello
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Areni Noir
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Cabernet blanc
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Fer
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Aspiran Noir (Ribeyrenc)
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Prosecco
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Ortrugo
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Hondarrabi Beltza
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Moscatel Branco
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Babeasca Neagra
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Avesso
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Schwarzriesling
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Petite Arvine
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Cornalin
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Vilana
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Kotsifali
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Plyto
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Limnio
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Passerina
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Riesling Italico
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Nocera
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Courbu
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Brancellao (Alvarelhao)
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Chasan
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Cococciola
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Antão Vaz
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Zierfandler
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Neuburger
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Balciana
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Oeillade Noire
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Olaszrizling
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Gros Plant
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Foglia Tonda
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Picolit
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Cesanese
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Juhfark
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Gamaret
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Irsai Oliver
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Cserszegi fűszeres
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Persan
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Sauvignon Vert
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Egiodola
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Lazki Rizling
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Zelen
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Bacchus
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Lledoner Pelut
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Moravia Agria
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Albana
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Famoso
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Dinka
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Rotgipfler
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Temjanika
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Bombino Bianco
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Seara Nova
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: MtSvane (Kakhuri)
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Saperavi, rød
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Kisi
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Rondo
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Albarossa
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Trousseau Gris
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Koshu
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Frontignan
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Barbera Bianca
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Mouraton (Alicante Bouschet)
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Donzelinho Branco
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Dimiat
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Rubin
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Moschofilero
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Vital
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Marawi
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Muscat Ottonel
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Elbling
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Nielluccio
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Devin
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Bombino Nero
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Piquepoul (Picapoll)
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Drupeggio (Canaiolo Bianco)
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Espadeiro
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Flora
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Ortega
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Schönburger
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Lambrusco Grasparossa
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Lado
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Huxelrebe
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Saperavi
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Rkatsiteli
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Arinarnoa
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Fer Servadou
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Pedral
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Albarín blanco
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Petit Rouge
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Fumin
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Pinotin
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Trincadeira das Pratas
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Roesler
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Sauvignon Kretos
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Soreli
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Fleurtai
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Coda di Volpe Bianco
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Minutolo
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Piedirosso
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Blauburger
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Moreto
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Tai Rosso
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Terrantez
+
+Log Entry : 3:49:39 PM Wednesday, October 7, 2020: Grape created: Souvignier Gris
+
+Log Entry : 3:49:40 PM Wednesday, October 7, 2020: Grape created: Garnacha Tintorera
+
+Log Entry : 3:49:40 PM Wednesday, October 7, 2020: Grape created: Mandelaria
+
+Log Entry : 3:49:51 PM Wednesday, October 7, 2020: Added foodbrews: 52802
+
+Log Entry : 3:49:59 PM Wednesday, October 7, 2020: Added grapebrews: 28234
+
+Log Entry : 3:51:11 PM Wednesday, October 7, 2020: Added brews: 21650
+
+Log Entry : 3:51:11 PM Wednesday, October 7, 2020: Added products: 21650

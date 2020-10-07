@@ -3,6 +3,7 @@ using System;
 using BrewView.DatabaseModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BrewView.Server.Migrations
@@ -14,15 +15,17 @@ namespace BrewView.Server.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.8");
+                .HasAnnotation("ProductVersion", "3.1.8")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("BrewView.DatabaseModels.Models.Brew", b =>
                 {
                     b.Property<string>("ProductId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Gtin")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProductId");
 
@@ -32,13 +35,13 @@ namespace BrewView.Server.Migrations
             modelBuilder.Entity("BrewView.DatabaseModels.Models.FoodAlcoholicEntity", b =>
                 {
                     b.Property<string>("ProductId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("FoodId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("AlcoholicEntityProductId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("ProductId", "FoodId");
 
@@ -52,16 +55,16 @@ namespace BrewView.Server.Migrations
             modelBuilder.Entity("BrewView.DatabaseModels.Models.GrapeAlcoholicEntity", b =>
                 {
                     b.Property<string>("ProductId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("GrapeId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("AlcoholicEntityProductId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("GrapePercent")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProductId", "GrapeId");
 
@@ -76,22 +79,23 @@ namespace BrewView.Server.Migrations
                 {
                     b.Property<int?>("NoteId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime?>("Date")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("Rating")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("Text")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserBrewProductId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("UserBrewUserId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("NoteId");
 
@@ -103,16 +107,16 @@ namespace BrewView.Server.Migrations
             modelBuilder.Entity("BrewView.DatabaseModels.Models.UserBrew", b =>
                 {
                     b.Property<string>("ProductId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("DrunkCount")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("Rating")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("ProductId", "UserId");
 
@@ -124,16 +128,16 @@ namespace BrewView.Server.Migrations
             modelBuilder.Entity("BrewView.DatabaseModels.User.User", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PasswordHash")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Salt")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -143,7 +147,7 @@ namespace BrewView.Server.Migrations
             modelBuilder.Entity("BrewView.DatabaseModels.Vinmonopol.AlcoholicEntity", b =>
                 {
                     b.Property<string>("ProductId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("ProductId");
 
@@ -153,10 +157,10 @@ namespace BrewView.Server.Migrations
             modelBuilder.Entity("BrewView.DatabaseModels.Vinmonopol.Food", b =>
                 {
                     b.Property<string>("FoodId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("FoodDesc")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("FoodId");
 
@@ -166,10 +170,10 @@ namespace BrewView.Server.Migrations
             modelBuilder.Entity("BrewView.DatabaseModels.Vinmonopol.Grape", b =>
                 {
                     b.Property<string>("GrapeId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("GrapeDesc")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("GrapeId");
 
@@ -180,22 +184,22 @@ namespace BrewView.Server.Migrations
                 {
                     b.Property<Guid?>("PriceId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AlcoholicEntityProductId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<double?>("BottleReturnValue")
-                        .HasColumnType("REAL");
+                        .HasColumnType("float");
 
                     b.Property<string>("PriceValidFrom")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double?>("SalesPrice")
-                        .HasColumnType("REAL");
+                        .HasColumnType("float");
 
                     b.Property<double?>("SalesPricePrLiter")
-                        .HasColumnType("REAL");
+                        .HasColumnType("float");
 
                     b.HasKey("PriceId");
 
@@ -257,58 +261,58 @@ namespace BrewView.Server.Migrations
                     b.OwnsOne("BrewView.DatabaseModels.Vinmonopol.Basic", "Basic", b1 =>
                         {
                             b1.Property<string>("AlcoholicEntityProductId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(450)");
 
                             b1.Property<string>("AgeLimit")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<double?>("AlcoholContent")
-                                .HasColumnType("REAL");
+                                .HasColumnType("float");
 
                             b1.Property<int?>("BottlePerSalesUnit")
-                                .HasColumnType("INTEGER");
+                                .HasColumnType("int");
 
                             b1.Property<string>("CorkType")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("CorkTypeId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("IntroductionDate")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("PackagingMaterial")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("PackagingMaterialId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("ProductLongName")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("ProductShortName")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("ProductStatusSaleId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("ProductStatusSaleName")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("ProductStatusSaleValidFrom")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<int?>("Vintage")
-                                .HasColumnType("INTEGER");
+                                .HasColumnType("int");
 
                             b1.Property<string>("VolumType")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("VolumTypeId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<double?>("Volume")
-                                .HasColumnType("REAL");
+                                .HasColumnType("float");
 
                             b1.HasKey("AlcoholicEntityProductId");
 
@@ -321,31 +325,31 @@ namespace BrewView.Server.Migrations
                     b.OwnsOne("BrewView.DatabaseModels.Vinmonopol.Classification", "Classification", b1 =>
                         {
                             b1.Property<string>("AlcoholicEntityProductId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(450)");
 
                             b1.Property<string>("MainProductTypeId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("MainProductTypeName")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("ProductGroupId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("ProductGroupName")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("ProductTypeId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("ProductTypeName")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("SubProductTypeId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("SubProductTypeName")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.HasKey("AlcoholicEntityProductId");
 
@@ -358,25 +362,25 @@ namespace BrewView.Server.Migrations
                     b.OwnsOne("BrewView.DatabaseModels.Vinmonopol.Description", "Description", b1 =>
                         {
                             b1.Property<string>("AlcoholicEntityProductId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(450)");
 
                             b1.Property<string>("Bitterness")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<Guid?>("DescriptionId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("uniqueidentifier");
 
                             b1.Property<string>("Freshness")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("Fullness")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("Sweetness")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("Tannins")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.HasKey("AlcoholicEntityProductId");
 
@@ -388,16 +392,16 @@ namespace BrewView.Server.Migrations
                             b1.OwnsOne("BrewView.DatabaseModels.Vinmonopol.Characteristics", "Characteristics", b2 =>
                                 {
                                     b2.Property<string>("DescriptionAlcoholicEntityProductId")
-                                        .HasColumnType("TEXT");
+                                        .HasColumnType("nvarchar(450)");
 
                                     b2.Property<string>("Colour")
-                                        .HasColumnType("TEXT");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.Property<string>("Odour")
-                                        .HasColumnType("TEXT");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.Property<string>("Taste")
-                                        .HasColumnType("TEXT");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.HasKey("DescriptionAlcoholicEntityProductId");
 
@@ -411,16 +415,16 @@ namespace BrewView.Server.Migrations
                     b.OwnsOne("BrewView.DatabaseModels.Vinmonopol.Ingredients", "Ingredients", b1 =>
                         {
                             b1.Property<string>("AlcoholicEntityProductId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(450)");
 
                             b1.Property<string>("Acid")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<Guid?>("IngredientsId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("uniqueidentifier");
 
                             b1.Property<string>("Sugar")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.HasKey("AlcoholicEntityProductId");
 
@@ -433,40 +437,40 @@ namespace BrewView.Server.Migrations
                     b.OwnsOne("BrewView.DatabaseModels.Vinmonopol.Logistics", "Logistics", b1 =>
                         {
                             b1.Property<string>("AlcoholicEntityProductId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(450)");
 
                             b1.Property<Guid?>("LogisticsId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("uniqueidentifier");
 
                             b1.Property<string>("ManufacturerId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("ManufacturerName")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<double?>("MinimumOrderQuantity")
-                                .HasColumnType("REAL");
+                                .HasColumnType("float");
 
                             b1.Property<string>("OrderPack")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<double?>("PackagingWeight")
-                                .HasColumnType("REAL");
+                                .HasColumnType("float");
 
                             b1.Property<string>("VendorId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("VendorName")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("VendorValidFrom")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("WholesalerId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("WholesalerName")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.HasKey("AlcoholicEntityProductId");
 
@@ -479,16 +483,16 @@ namespace BrewView.Server.Migrations
                     b.OwnsOne("BrewView.DatabaseModels.Vinmonopol.Origins", "Origins", b1 =>
                         {
                             b1.Property<string>("AlcoholicEntityProductId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(450)");
 
                             b1.Property<string>("LocalQualityClassif")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("LocalQualityClassifId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<Guid?>("OriginsId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("uniqueidentifier");
 
                             b1.HasKey("AlcoholicEntityProductId");
 
@@ -500,25 +504,25 @@ namespace BrewView.Server.Migrations
                             b1.OwnsOne("BrewView.DatabaseModels.Vinmonopol.Origin", "Origin", b2 =>
                                 {
                                     b2.Property<string>("OriginsAlcoholicEntityProductId")
-                                        .HasColumnType("TEXT");
+                                        .HasColumnType("nvarchar(450)");
 
                                     b2.Property<string>("Country")
-                                        .HasColumnType("TEXT");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.Property<string>("CountryId")
-                                        .HasColumnType("TEXT");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.Property<string>("Region")
-                                        .HasColumnType("TEXT");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.Property<string>("RegionId")
-                                        .HasColumnType("TEXT");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.Property<string>("SubRegion")
-                                        .HasColumnType("TEXT");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.Property<string>("SubRegionId")
-                                        .HasColumnType("TEXT");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.HasKey("OriginsAlcoholicEntityProductId");
 
@@ -531,19 +535,19 @@ namespace BrewView.Server.Migrations
                             b1.OwnsOne("BrewView.DatabaseModels.Vinmonopol.Production", "Production", b2 =>
                                 {
                                     b2.Property<string>("OriginsAlcoholicEntityProductId")
-                                        .HasColumnType("TEXT");
+                                        .HasColumnType("nvarchar(450)");
 
                                     b2.Property<string>("Country")
-                                        .HasColumnType("TEXT");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.Property<string>("CountryId")
-                                        .HasColumnType("TEXT");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.Property<string>("Region")
-                                        .HasColumnType("TEXT");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.Property<string>("RegionId")
-                                        .HasColumnType("TEXT");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.HasKey("OriginsAlcoholicEntityProductId");
 
@@ -557,52 +561,52 @@ namespace BrewView.Server.Migrations
                     b.OwnsOne("BrewView.DatabaseModels.Vinmonopol.Properties", "Properties", b1 =>
                         {
                             b1.Property<string>("AlcoholicEntityProductId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(450)");
 
                             b1.Property<bool>("Biodynamic")
-                                .HasColumnType("INTEGER");
+                                .HasColumnType("bit");
 
                             b1.Property<string>("EcoLabelling")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("EcoLabellingId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<bool>("EnvironmentallySmart")
-                                .HasColumnType("INTEGER");
+                                .HasColumnType("bit");
 
                             b1.Property<bool>("EthicallyCertified")
-                                .HasColumnType("INTEGER");
+                                .HasColumnType("bit");
 
                             b1.Property<bool>("FreeOrLowOnGluten")
-                                .HasColumnType("INTEGER");
+                                .HasColumnType("bit");
 
                             b1.Property<bool>("Kosher")
-                                .HasColumnType("INTEGER");
+                                .HasColumnType("bit");
 
                             b1.Property<bool>("LocallyProduced")
-                                .HasColumnType("INTEGER");
+                                .HasColumnType("bit");
 
                             b1.Property<bool>("NoAddedSulphur")
-                                .HasColumnType("INTEGER");
+                                .HasColumnType("bit");
 
                             b1.Property<bool>("Organic")
-                                .HasColumnType("INTEGER");
+                                .HasColumnType("bit");
 
                             b1.Property<string>("ProductionMethodStorage")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("StoragePotential")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("StoragePotentialId")
-                                .HasColumnType("TEXT");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<bool>("SweetWine")
-                                .HasColumnType("INTEGER");
+                                .HasColumnType("bit");
 
                             b1.Property<bool>("VintageControlled")
-                                .HasColumnType("INTEGER");
+                                .HasColumnType("bit");
 
                             b1.HasKey("AlcoholicEntityProductId");
 

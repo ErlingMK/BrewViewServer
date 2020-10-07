@@ -248,7 +248,7 @@ namespace BrewView.Server.Migrations
                 columns: table => new
                 {
                     NoteId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Date = table.Column<DateTime>(nullable: true),
                     Text = table.Column<string>(nullable: true),
                     Rating = table.Column<int>(nullable: true),
