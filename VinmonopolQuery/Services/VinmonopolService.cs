@@ -29,7 +29,7 @@ namespace VinmonopolQuery.Services
             int count;
             try
             {
-                Log("Fetching from vinmonopolet...");
+                Logger.Log("Fetching from vinmonopolet...");
 
                 var httpRequestBuilder = new HttpRequestBuilder().WithMethod(HttpMethod.Get)
                     .WithRequestUri($"{Program.AppSettings.ApiUrl}{Program.AppSettings.ProductDetailsEndPoint}")
@@ -47,26 +47,18 @@ namespace VinmonopolQuery.Services
 
                 count = alcoholicEntities.Count;
 
-                Log($"Retrieved count: {count}");
+                Logger.Log($"Retrieved count: {count}");
 
                 if (!getAll) await UpdateProducts(alcoholicEntities);
                 else await AddAllToDb(alcoholicEntities);
             }
             catch (Exception e)
             {
-                Log($"{e.Message}\n{e.StackTrace}");
+                Logger.Log($"{e.Message}\n{e.StackTrace}");
                 return -1;
             }
 
             return 0;
-        }
-
-        private void Log(string message)
-        {
-            Console.WriteLine(message);
-
-            using var wr = File.AppendText("log.txt");
-            Logger.Log(message, wr);
         }
 
         private async Task UpdateProducts(List<AlcoholicEntity> alcoholicEntities)
@@ -122,8 +114,8 @@ namespace VinmonopolQuery.Services
 
             await m_db.SaveChangesAsync();
 
-            Log($"Added brews: {brews.Count}");
-            Log($"Added products: {entity.Count}");
+            Logger.Log($"Added brews: {brews.Count}");
+            Logger.Log($"Added products: {entity.Count}");
         }
 
         private async Task CreateGrapeBrews(List<AlcoholicEntity> entity)
@@ -135,7 +127,7 @@ namespace VinmonopolQuery.Services
 
             m_db.GrapeBrews.AddRange(grapes);
             await m_db.SaveChangesAsync();
-            Log($"Added grapebrews: {grapes.Count}");
+            Logger.Log($"Added grapebrews: {grapes.Count}");
         }
 
         private async Task CreateFoodBrews(IList<AlcoholicEntity> alcoholicEntities)
@@ -147,7 +139,7 @@ namespace VinmonopolQuery.Services
 
             m_db.FoodBrews.AddRange(foods);
             await m_db.SaveChangesAsync();
-            Log($"Added foodbrews: {foods.Count}");
+            Logger.Log($"Added foodbrews: {foods.Count}");
         }
 
         private async Task CreateGrape(AlcoholicEntity alcoholicEntity)
@@ -159,7 +151,7 @@ namespace VinmonopolQuery.Services
                 {
                     m_db.Grapes.Add(grape);
                     await m_db.SaveChangesAsync();
-                    Log($"Grape created: {grape.GrapeDesc}");
+                    Logger.Log($"Grape created: {grape.GrapeDesc}");
                 }
             }
         }
@@ -173,7 +165,7 @@ namespace VinmonopolQuery.Services
                 {
                     m_db.Foods.Add(food);
                     await m_db.SaveChangesAsync();
-                    Log($"Food created: {food.FoodDesc}");
+                    Logger.Log($"Food created: {food.FoodDesc}");
                 }
             }
         }

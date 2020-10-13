@@ -1985,3 +1985,97 @@ Log Entry : 5:56:41 PM Wednesday, October 7, 2020: Added grapebrews: 23
 Log Entry : 5:56:41 PM Wednesday, October 7, 2020: Added brews: 26
 
 Log Entry : 5:56:41 PM Wednesday, October 7, 2020: Added products: 26
+
+Log Entry : 10:30:19 AM Thursday, October 8, 2020: Fetching from vinmonopolet...
+
+Log Entry : 10:30:21 AM Thursday, October 8, 2020: Retrieved count: 579
+
+Log Entry : 10:30:26 AM Thursday, October 8, 2020: Added foodbrews: 0
+
+Log Entry : 10:30:26 AM Thursday, October 8, 2020: Added grapebrews: 0
+
+Log Entry : 10:30:26 AM Thursday, October 8, 2020: Added brews: 4
+
+Log Entry : 10:30:26 AM Thursday, October 8, 2020: Added products: 4
+
+Log Entry : 7:43:35 PM Friday, October 9, 2020: Fetching from vinmonopolet...
+
+Log Entry : 7:43:38 PM Friday, October 9, 2020: Retrieved count: 567
+
+Log Entry : 7:43:43 PM Friday, October 9, 2020: Added foodbrews: 0
+
+Log Entry : 7:43:43 PM Friday, October 9, 2020: Added grapebrews: 0
+
+Log Entry : 7:43:43 PM Friday, October 9, 2020: Added brews: 0
+
+Log Entry : 7:43:43 PM Friday, October 9, 2020: Added products: 0
+
+Log Entry : 7:48:04 PM Friday, October 9, 2020: Products changed since: 2020-10-08
+
+Log Entry : 7:48:04 PM Friday, October 9, 2020: Fetching from vinmonopolet...
+
+Log Entry : 7:48:06 PM Friday, October 9, 2020: Retrieved count: 567
+
+Log Entry : 7:48:09 PM Friday, October 9, 2020: Added foodbrews: 0
+
+Log Entry : 7:48:09 PM Friday, October 9, 2020: Added grapebrews: 0
+
+Log Entry : 7:48:09 PM Friday, October 9, 2020: Added brews: 0
+
+Log Entry : 7:48:09 PM Friday, October 9, 2020: Added products: 0
+
+Log Entry : 2:00:02 AM Saturday, October 10, 2020: Products changed since: 2020-10-09
+
+Log Entry : 2:00:02 AM Saturday, October 10, 2020: Fetching from vinmonopolet...
+
+Log Entry : 2:00:03 AM Saturday, October 10, 2020: Retrieved count: 338
+
+Log Entry : 2:00:07 AM Saturday, October 10, 2020: Added foodbrews: 0
+
+Log Entry : 2:00:07 AM Saturday, October 10, 2020: Added grapebrews: 0
+
+Log Entry : 2:00:07 AM Saturday, October 10, 2020: Added brews: 0
+
+Log Entry : 2:00:07 AM Saturday, October 10, 2020: Added products: 0
+
+Log Entry : 6:49:34 PM Sunday, October 11, 2020: Products changed since: 2020-10-10
+
+Log Entry : 6:49:34 PM Sunday, October 11, 2020: Fetching from vinmonopolet...
+
+Log Entry : 6:49:57 PM Sunday, October 11, 2020: The SSL connection could not be established, see inner exception.
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsyncCore(Stream stream, SslClientAuthenticationOptions sslOptions, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean allowHttp2, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncBuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at VinmonopolQuery.Services.VinmonopolService.GetProducts(Boolean getAll, String dateTime) in C:\Users\erlin\source\repos\BrewViewServer\VinmonopolQuery\Services\VinmonopolService.cs:line 41
+
+Log Entry : 2:00:01 AM Monday, October 12, 2020: Products changed since: 2020-10-11
+
+Log Entry : 2:00:01 AM Monday, October 12, 2020: Fetching from vinmonopolet...
+
+Log Entry : 2:00:02 AM Monday, October 12, 2020: Retrieved count: 64
+
+Log Entry : 2:00:06 AM Monday, October 12, 2020: Added foodbrews: 0
+
+Log Entry : 2:00:06 AM Monday, October 12, 2020: Added grapebrews: 0
+
+Log Entry : 2:00:06 AM Monday, October 12, 2020: Added brews: 0
+
+Log Entry : 2:00:06 AM Monday, October 12, 2020: Added products: 0
+
+Log Entry : 9:38:51 AM Tuesday, October 13, 2020: Products changed since: 2020-10-12
+
+Log Entry : 9:38:51 AM Tuesday, October 13, 2020: Fetching from vinmonopolet...
+
+Log Entry : 9:38:56 AM Tuesday, October 13, 2020: Retrieved count: 623
+
+Log Entry : 9:39:00 AM Tuesday, October 13, 2020: Added foodbrews: 0
+
+Log Entry : 9:39:00 AM Tuesday, October 13, 2020: Added grapebrews: 0
+
+Log Entry : 9:39:01 AM Tuesday, October 13, 2020: Added brews: 0
+
+Log Entry : 9:39:01 AM Tuesday, October 13, 2020: Added products: 0

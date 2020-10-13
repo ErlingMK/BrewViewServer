@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using LightInject;
 using Newtonsoft.Json;
 using VinmonopolQuery.Services;
+using VinmonopolQuery.Util;
 
 namespace VinmonopolQuery
 {
@@ -21,7 +22,7 @@ namespace VinmonopolQuery
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                Logger.Log($"{e.Message}\n{e.StackTrace}");
                 throw;
             }
 
@@ -31,6 +32,8 @@ namespace VinmonopolQuery
             serviceContainer.RegisterFrom<CompositionRoot>();
 
             var vinmonopolService = serviceContainer.GetInstance<IVinmonopolService>();
+
+            Logger.Log($"Products changed since: {argDict["-since"]}");
 
             return await vinmonopolService.GetProducts(bool.Parse(argDict["-mode"]), argDict["-since"]);
         }

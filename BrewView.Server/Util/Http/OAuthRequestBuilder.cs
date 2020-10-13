@@ -7,7 +7,7 @@ namespace BrewView.Server.Util.Http
     public class OAuthRequestBuilder
     {
         public static string AppendQueryString(string id, string redirectUri, IEnumerable<string> scopes,
-            string state, string url, string nonce, bool requestRefresh = true)
+            string state, string url, string nonce, string codeChallenge, bool requestRefresh = true)
         {
             var scopeString = "";
             foreach (var scope in scopes)
@@ -26,7 +26,9 @@ namespace BrewView.Server.Util.Http
                 {"response_type", "code"},
                 {"state", state},
                 {"nonce", nonce},
-                {"prompt", "consent"}
+                {"prompt", "consent"},
+                {"code_challenge", codeChallenge},
+                {"code_challenge_method", "S256"}
             };
 
             if (requestRefresh) dict.Add("access_type", "offline");
@@ -34,15 +36,15 @@ namespace BrewView.Server.Util.Http
             return QueryHelpers.AddQueryString(url, dict);
         }
 
-        public static FormUrlEncodedContent TokenRequestContent(string code, string id, string secret, string redirectUri)
+        public static FormUrlEncodedContent TokenRequestContent(string code, string id, string codeVerifier, string redirectUri)
         {
             var content = new FormUrlEncodedContent(new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("code", code),
                 new KeyValuePair<string, string>("client_id", id),
-                new KeyValuePair<string, string>("client_secret", secret),
                 new KeyValuePair<string, string>("redirect_uri", redirectUri),
-                new KeyValuePair<string, string>("grant_type", "authorization_code")
+                new KeyValuePair<string, string>("grant_type", "authorization_code"),
+                new KeyValuePair<string, string>("code_verifier", codeVerifier)
             });
             return content;
         }

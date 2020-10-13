@@ -16,7 +16,8 @@ namespace BrewView.Server
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder
-                        .UseStartup<Startup>();
+                        .UseStartup<Startup>()
+                        .UseUrls("https://*:5566");
                 });
         }
     }

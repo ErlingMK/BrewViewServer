@@ -1,4 +1,4 @@
-﻿namespace BrewView.Server.Services
+﻿namespace BrewView.DatabaseModels.Models
 {
     public enum AuthenticationProvider
     {
