@@ -9,5 +9,6 @@ namespace BrewView.DatabaseModels.Vinmonopol
         public double? SalesPrice { get; set; }
         public double? SalesPricePrLiter { get; set; }
         public double? BottleReturnValue { get; set; }
+        public AlcoholicEntity AlcoholicEntity { get; set; }
     }
 }

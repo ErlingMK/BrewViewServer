@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using BrewView.DatabaseModels.Models;
 
 namespace BrewView.DatabaseModels.Vinmonopol
 {
@@ -6,7 +8,9 @@ namespace BrewView.DatabaseModels.Vinmonopol
     {
         public string GrapeId { get; set; }
         public string GrapeDesc { get; set; }
-        [NotMapped]
-        public string GrapePct { get; set; }
+
+        [NotMapped] public string GrapePct { get; set; }
+
+        public IList<GrapeAlcoholicEntity> GrapeAlcoholicEntities { get; set; }
     }
 }

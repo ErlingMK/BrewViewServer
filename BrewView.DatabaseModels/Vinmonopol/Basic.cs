@@ -6,8 +6,8 @@ namespace BrewView.DatabaseModels.Vinmonopol
     [Owned]
     public class Basic
     {
-        [NotMapped]
-        public string ProductId { get; set; }
+        [NotMapped] public string ProductId { get; set; }
+
         public string ProductShortName { get; set; }
         public string ProductLongName { get; set; }
         public double? Volume { get; set; }

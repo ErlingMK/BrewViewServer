@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -21,7 +21,7 @@ namespace VinmonopolQuery.Services
         {
             m_db = db;
             m_client = client;
-            m_client.Timeout = TimeSpan.FromSeconds(240);
+            m_client.Timeout = TimeSpan.FromSeconds(400);
         }
 
         public async Task<int> GetProducts(bool getAll = false, string dateTime = "")
@@ -29,7 +29,6 @@ namespace VinmonopolQuery.Services
             int count;
             try
             {
-                Logger.Log("Fetching from vinmonopolet...");
 
                 var httpRequestBuilder = new HttpRequestBuilder().WithMethod(HttpMethod.Get)
                     .WithRequestUri($"{Program.AppSettings.ApiUrl}{Program.AppSettings.ProductDetailsEndPoint}")
@@ -38,9 +37,18 @@ namespace VinmonopolQuery.Services
 
                 if (!getAll) httpRequestBuilder.AddQueryParameter("changedSince", dateTime);
 
-                var response = await m_client.SendAsync(httpRequestBuilder.Build());
+                var httpRequestMessage = httpRequestBuilder.Build();
+
+                Logger.Log($"Fetching from {httpRequestMessage.RequestUri}");
+
+                var stopwatch = Stopwatch.StartNew();
+                var response = await m_client.SendAsync(httpRequestMessage);
+                Logger.Log($"Request duration: {stopwatch.Elapsed}");
+                stopwatch.Stop();
 
                 response.EnsureSuccessStatusCode();
+
+                Logger.Log($"{response.StatusCode}: {response.ReasonPhrase}");
 
                 var content = await response.Content.ReadAsStringAsync();
                 var alcoholicEntities = JsonConvert.DeserializeObject<List<AlcoholicEntity>>(content);
@@ -54,7 +62,7 @@ namespace VinmonopolQuery.Services
             }
             catch (Exception e)
             {
-                Logger.Log($"{e.Message}\n{e.StackTrace}");
+                Logger.Log($"{e.Message}\n{e.StackTrace}\nInner Exception:\n{e?.InnerException?.Message}\n{e?.InnerException?.StackTrace}");
                 return -1;
             }
 
@@ -107,10 +115,11 @@ namespace VinmonopolQuery.Services
 
             var brews = entity.Select(CreateBrew).ToList();
 
-            await CreateFoodBrews(entity);
-            await CreateGrapeBrews(entity);
             m_db.Brews.AddRange(brews);
             m_db.AlcoholicEntities.AddRange(entity);
+
+            await CreateFoodBrews(entity);
+            await CreateGrapeBrews(entity);
 
             await m_db.SaveChangesAsync();
 

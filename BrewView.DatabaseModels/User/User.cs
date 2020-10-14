@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System;
 
 namespace BrewView.DatabaseModels.User
 {
@@ -8,5 +9,7 @@ namespace BrewView.DatabaseModels.User
         public string Email { get; set; }
         public string PasswordHash { get; set; }
         public string Salt { get; set; }
+        public string RefreshToken { get; set; }
+        public DateTime? ExpiresAt { get; set; }
     }
 }

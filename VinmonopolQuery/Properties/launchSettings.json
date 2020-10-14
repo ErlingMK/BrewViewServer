@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "VinmonopolQuery": {
+      "commandName": "Project",
+      "commandLineArgs": "-mode true"
+    }
+  }
+}

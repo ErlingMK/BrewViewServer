@@ -15,6 +15,8 @@ namespace VinmonopolQuery
 
         public static async Task<int> Main(string[] args)
         {
+            Logger.Log("\n\nStarting new session...");
+
             var argDict = new Dictionary<string, string>();
             try
             {
@@ -28,14 +30,23 @@ namespace VinmonopolQuery
 
             AppSettings = JsonConvert.DeserializeObject<AppSettings>(await File.ReadAllTextAsync("appsettings.development.json"));
 
+            Logger.Log($"UseSqlite: {AppSettings.UseSqlite}");
+
             var serviceContainer = new ServiceContainer(options => options.EnablePropertyInjection = false);
             serviceContainer.RegisterFrom<CompositionRoot>();
 
             var vinmonopolService = serviceContainer.GetInstance<IVinmonopolService>();
 
-            Logger.Log($"Products changed since: {argDict["-since"]}");
+            if (argDict.TryGetValue("-since", out var since))
+            {
+                Logger.Log($"Products changed since: {since}");
+            }
 
-            return await vinmonopolService.GetProducts(bool.Parse(argDict["-mode"]), argDict["-since"]);
+            var products = await vinmonopolService.GetProducts(bool.Parse(argDict["-mode"]), since);
+
+            Logger.Log("Done");
+
+            return products;
         }
     }
 }

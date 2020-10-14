@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace VinmonopolQuery.Util
 {
@@ -9,9 +7,9 @@ namespace VinmonopolQuery.Util
     {
         private static void Log(string logMessage, TextWriter w)
         {
-            w.Write("\r\nLog Entry : ");
-            w.Write($"{DateTime.Now.ToLongTimeString()} {DateTime.Now.ToLongDateString()}: ");
-            w.WriteLine($"{logMessage}");
+            w.Write("\nLog Entry : ");
+            w.Write($"{DateTime.Now:dd/MM/yyyy HH:mm}: ");
+            w.Write($"{logMessage}");
         }
 
         private static void DumpLog(StreamReader r)
@@ -25,10 +23,12 @@ namespace VinmonopolQuery.Util
 
         public static void Log(string message)
         {
+#if DEBUG
             Console.WriteLine(message);
+#endif
 
-            using var wr = File.AppendText("log.txt");
-            Logger.Log(message, wr);
+            using var wr = File.AppendText(@"C:\Users\erlin\source\repos\BrewViewServer\VinmonopolQuery\log.log");
+            Log(message, wr);
         }
     }
 }

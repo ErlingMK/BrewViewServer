@@ -32,14 +32,14 @@ namespace BrewView.Server
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<BrewContext>(opt =>
             {
 #if DEBUG
-                opt.UseSqlite("Data Source=../Brew.db",
-                    builder => builder.MigrationsAssembly(Assembly.GetAssembly(typeof(Startup)).ToString()));
+                //opt.UseSqlite("Data Source=../Brew.db",
+                //    builder => builder.MigrationsAssembly(Assembly.GetAssembly(typeof(Startup)).ToString()));
+                opt.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection"), builder => builder.MigrationsAssembly(Assembly.GetAssembly(typeof(Startup)).ToString()));
 #else
                 opt.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection"), builder => builder.MigrationsAssembly(Assembly.GetAssembly(typeof(Startup)).ToString()));
 #endif

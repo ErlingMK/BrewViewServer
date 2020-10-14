@@ -5,8 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20201013200630_initial.cs" />
-    <Compile Remove="Migrations\20201013200630_initial.Designer.cs" />
+    <Compile Remove="Migrations\20201014193040_initial.cs" />
+    <Compile Remove="Migrations\20201014193040_initial.Designer.cs" />
+    <Compile Remove="Migrations\20201014193347_initial.cs" />
+    <Compile Remove="Migrations\20201014193347_initial.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,10 +37,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BrewView.DatabaseModels\BrewView.DatabaseModels.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
 
