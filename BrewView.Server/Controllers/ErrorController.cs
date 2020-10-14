@@ -21,7 +21,7 @@ namespace BrewView.Server.Controllers
             var context = HttpContext.Features.Get<IExceptionHandlerFeature>();
             logger.LogError(context.Error, "");
             return Problem(
-                detail: context.Error.StackTrace,
+                context.Error.StackTrace,
                 title: context.Error.Message);
         }
     }

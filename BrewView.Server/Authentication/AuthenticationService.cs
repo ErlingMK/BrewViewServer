@@ -5,10 +5,8 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using BrewView.Server.Authentication.BrewView;
 using BrewView.Server.Authentication.Google;
-using BrewView.Server.Services.Abstractions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
-using Microsoft.IdentityModel.Tokens;
 
 namespace BrewView.Server.Authentication
 {

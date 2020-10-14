@@ -31,6 +31,7 @@ namespace BrewView.Server.Authentication
 
         private static bool ShouldAuthenticate(HttpContext user)
         {
+            //TODO: Check target controller instead of string verifying.
             var path = user.Request.Path.ToUriComponent().ToLower();
             return !(path.Contains("auth") || path.Contains("playground") || path.Contains("error"));
         }

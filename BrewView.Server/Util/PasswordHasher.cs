@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using BrewView.Contracts.User;
 using BrewView.DatabaseModels.User;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 

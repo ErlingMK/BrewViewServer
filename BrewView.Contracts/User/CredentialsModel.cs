@@ -1,4 +1,4 @@
-﻿namespace BrewView.DatabaseModels.User
+﻿namespace BrewView.Contracts.User
 {
     public class CredentialsModel
     {

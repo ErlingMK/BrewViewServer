@@ -6,7 +6,6 @@ using BrewView.DatabaseModels;
 using BrewView.DatabaseModels.Models;
 using BrewView.DatabaseModels.Vinmonopol;
 using BrewView.Server.Repositories.Abstractions;
-using BrewView.Server.Services;
 using BrewView.Server.Services.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
@@ -122,7 +121,8 @@ namespace BrewView.Server.Repositories
 
         public async Task<IList<UserBrew>> GetUserBrews()
         {
-            return await m_db.UserBrews.Where(brew => brew.UserId == m_userService.CurrentUser).Include(brew => brew.Notes).ToListAsync();
+            return await m_db.UserBrews.Where(brew => brew.UserId == m_userService.CurrentUser)
+                .Include(brew => brew.Notes).ToListAsync();
         }
     }
 }

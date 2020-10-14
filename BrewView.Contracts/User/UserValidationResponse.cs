@@ -1,7 +1,4 @@
-﻿using System;
-using BrewView.DatabaseModels.Models;
-
-namespace BrewView.DatabaseModels.User
+﻿namespace BrewView.Contracts.User
 {
     public class UserValidationResponse
     {

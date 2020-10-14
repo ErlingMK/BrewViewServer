@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using BrewView.Contracts;
+using BrewView.Contracts.User;
 using BrewView.DatabaseModels.Models;
 using BrewView.DatabaseModels.User;
 using BrewView.Server.Authentication.Google;

@@ -10,11 +10,9 @@ namespace BrewView.Server.Authentication.Google
         [JsonProperty("authorization_endpoint")]
         public string AuthorizationEndpoint { get; set; }
 
-        [JsonProperty("token_endpoint")]
-        public string TokenEndpoint { get; set; }
+        [JsonProperty("token_endpoint")] public string TokenEndpoint { get; set; }
 
-        [JsonProperty("jwks_uri")] 
-        public string CertEndpoint { get; set; }
+        [JsonProperty("jwks_uri")] public string CertEndpoint { get; set; }
 
         public string Issuer { get; set; }
     }

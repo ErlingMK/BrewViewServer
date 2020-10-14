@@ -1,8 +1,7 @@
 ﻿using System.Threading.Tasks;
+using BrewView.Contracts.User;
 using BrewView.DatabaseModels.User;
-using BrewView.Server.Controllers;
 using BrewView.Server.Models;
-using BrewView.Server.Util;
 
 namespace BrewView.Server.Repositories.Abstractions
 {
