@@ -1,9 +1,5 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-
-namespace BrewView.DatabaseModels.Vinmonopol
+﻿namespace BrewView.Contracts
 {
-    [Owned]
     public class Origins
     {
         public Origin Origin { get; set; }

@@ -8,8 +8,6 @@ namespace BrewView.DatabaseModels.Vinmonopol
     [Owned]
     public class Ingredients
     {
-        public Guid? IngredientsId { get; set; }
-
         [NotMapped] public IList<Grape> Grapes { get; set; }
 
         public string Sugar { get; set; }

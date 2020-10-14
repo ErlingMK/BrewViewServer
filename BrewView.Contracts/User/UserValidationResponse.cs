@@ -2,7 +2,9 @@
 {
     public class UserValidationResponse
     {
-        public UserValidationResponse(bool succeeded, UserValidationResponseMessage message = UserValidationResponseMessage.Error, string idToken = "", string refreshToken = "")
+        public UserValidationResponse(bool succeeded,
+            UserValidationResponseMessage message = UserValidationResponseMessage.Error, string idToken = "",
+            string refreshToken = "")
         {
             Succeeded = succeeded;
             IdToken = idToken;
@@ -13,9 +15,8 @@
         public bool Succeeded { get; }
         public UserValidationResponseMessage Message { get; }
         public string IdToken { get; }
-        public string RefreshToken { get;}
+        public string RefreshToken { get; }
         public AuthenticationProvider AuthenticationProvider { get; }
-
     }
 
     public enum UserValidationResponseMessage
