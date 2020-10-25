@@ -17,17 +17,17 @@ namespace BrewView.Server.GraphQL
             m_repository = repository;
         }
             
-        public async Task<AlcoholicEntity> GetBrew(string productId)
+        public async Task<Contracts.Brew> GetBrew(string productId)
         {
             return await m_repository.Get(productId);
         }
 
-        public async Task<AlcoholicEntity> GetBrewId(string gtin)
+        public async Task<Contracts.Brew> GetBrewId(string gtin)
         {
             return await m_repository.GetByGtin(gtin);
         }
 
-        public async Task<IList<AlcoholicEntity>> GetBrews()
+        public async Task<IList<Contracts.Brew>> GetBrews()
         {
             return await m_repository.GetBrews();
         }

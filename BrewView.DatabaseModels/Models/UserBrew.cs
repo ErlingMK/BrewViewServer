@@ -4,7 +4,7 @@ namespace BrewView.DatabaseModels.Models
 {
     public class UserBrew
     {
-        public Brew Brew { get; set; }
+        public ProductGtin ProductGtin { get; set; }
         public string ProductId { get; set; }
 
         public User.User User { get; set; }

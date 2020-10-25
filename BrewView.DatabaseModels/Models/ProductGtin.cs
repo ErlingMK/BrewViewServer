@@ -2,7 +2,7 @@
 
 namespace BrewView.DatabaseModels.Models
 {
-    public class Brew
+    public class ProductGtin
     {
         [Key] public string ProductId { get; set; }
 

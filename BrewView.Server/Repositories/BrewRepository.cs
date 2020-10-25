@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using BrewView.DatabaseModels;
 using BrewView.DatabaseModels.Models;
 using BrewView.DatabaseModels.Vinmonopol;
@@ -15,21 +16,19 @@ namespace BrewView.Server.Repositories
     {
         private readonly BrewContext m_db;
         private readonly IUserService m_userService;
+        private readonly IMapper m_mapper;
 
-        public BrewRepository(BrewContext db, IUserService userService)
+        public BrewRepository(BrewContext db, IUserService userService, IMapper mapper)
         {
             m_db = db;
             m_userService = userService;
+            m_mapper = mapper;
         }
 
-        public async Task<AlcoholicEntity> Get(string productId)
+        public async Task<Contracts.Brew> Get(string productId)
         {
-            return await m_db.AlcoholicEntities.FindAsync(productId);
-        }
-
-        public async Task<Brew> GetBrew(string productId)
-        {
-            return await m_db.Brews.FindAsync(productId);
+            var alcoholicEntity = await m_db.AlcoholicEntities.FindAsync(productId);
+            return m_mapper.Map<Contracts.Brew>(alcoholicEntity);
         }
 
         public async Task<UserBrew> GetUserBrew(string productId)
@@ -98,12 +97,7 @@ namespace BrewView.Server.Repositories
             return userBrew;
         }
 
-        public async Task<Brew> GetBrewByGtin(string gtin)
-        {
-            return await m_db.Brews.SingleAsync(b => b.Gtin == gtin);
-        }
-
-        public async Task<AlcoholicEntity> GetByGtin(string gtin)
+        public async Task<Contracts.Brew> GetByGtin(string gtin)
         {
             var brew = await m_db.Brews.SingleOrDefaultAsync(b => b.Gtin == gtin);
 
@@ -112,11 +106,12 @@ namespace BrewView.Server.Repositories
             return await Get(brew.ProductId);
         }
 
-        public async Task<IList<AlcoholicEntity>> GetBrews()
+        public async Task<IList<Contracts.Brew>> GetBrews()
         {
             var brews = await m_db.UserBrews.Where(b => b.UserId == m_userService.CurrentUser)
                 .Select(brew => brew.ProductId).ToListAsync();
-            return await m_db.AlcoholicEntities.Where(entity => brews.Contains(entity.ProductId)).ToListAsync();
+            var alcoholicEntities = await m_db.AlcoholicEntities.Where(entity => brews.Contains(entity.ProductId)).ToListAsync();
+            return alcoholicEntities.Select(entity => m_mapper.Map<Contracts.Brew>(entity)).ToList();
         }
 
         public async Task<IList<UserBrew>> GetUserBrews()

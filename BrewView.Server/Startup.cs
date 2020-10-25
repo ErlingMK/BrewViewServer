@@ -1,5 +1,8 @@
 using System.Reflection;
+using AutoMapper;
+using BrewView.Contracts;
 using BrewView.DatabaseModels;
+using BrewView.DatabaseModels.Vinmonopol;
 using BrewView.Server.Authentication;
 using BrewView.Server.Authentication.BrewView;
 using BrewView.Server.Authentication.Google;
@@ -10,7 +13,6 @@ using BrewView.Server.Services;
 using BrewView.Server.Services.Abstractions;
 using HotChocolate;
 using HotChocolate.AspNetCore;
-using HotChocolate.AspNetCore.Playground;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -20,6 +22,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using AuthenticationService = BrewView.Server.Authentication.AuthenticationService;
+using Basic = BrewView.DatabaseModels.Vinmonopol.Basic;
+using Logistics = BrewView.DatabaseModels.Vinmonopol.Logistics;
+using Origin = BrewView.DatabaseModels.Vinmonopol.Origin;
+using Origins = BrewView.DatabaseModels.Vinmonopol.Origins;
 
 namespace BrewView.Server
 {
@@ -41,7 +47,8 @@ namespace BrewView.Server
                 //    builder => builder.MigrationsAssembly(Assembly.GetAssembly(typeof(Startup)).ToString()));
                 opt.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection"), builder => builder.MigrationsAssembly(Assembly.GetAssembly(typeof(Startup)).ToString()));
 #else
-                opt.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection"), builder => builder.MigrationsAssembly(Assembly.GetAssembly(typeof(Startup)).ToString()));
+                opt.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection"),
+                    builder => builder.MigrationsAssembly(Assembly.GetAssembly(typeof(Startup)).ToString()));
 #endif
             });
 
@@ -50,6 +57,9 @@ namespace BrewView.Server
                     .AddQueryType<Query>()
                     .AddMutationType<Mutation>()
                     .Create());
+
+            services.AddSingleton(new MapperConfiguration(ConfigureMapper));
+            services.AddScoped(provider => provider.GetService<MapperConfiguration>().CreateMapper());
 
             services.AddScoped<IBrewViewAuthentication, BrewViewAuthentication>();
             services.AddScoped<IAuthenticationService, AuthenticationService>();
@@ -68,6 +78,15 @@ namespace BrewView.Server
                 builder.AddAzureWebAppDiagnostics();
                 builder.AddApplicationInsights();
             });
+        }
+
+        public static void ConfigureMapper(IMapperConfigurationExpression obj)
+        {
+            obj.CreateMap<AlcoholicEntity, Brew>();
+            obj.CreateMap<Basic, Contracts.Basic>();
+            obj.CreateMap<Logistics, Contracts.Logistics>();
+            obj.CreateMap<Origins, Contracts.Origins>();
+
         }
 
 

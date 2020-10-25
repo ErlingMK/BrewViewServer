@@ -11,7 +11,7 @@ namespace BrewView.DatabaseModels
         }
 
         public DbSet<User.User> Users { get; set; }
-        public DbSet<Brew> Brews { get; set; }
+        public DbSet<ProductGtin> Brews { get; set; }
         public DbSet<UserBrew> UserBrews { get; set; }
         public DbSet<AlcoholicEntity> AlcoholicEntities { get; set; }
         public DbSet<Food> Foods { get; set; }

@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrewView.DatabaseModels", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VinmonopolQuery", "VinmonopolQuery\VinmonopolQuery.csproj", "{F74408B4-1B47-4042-B377-F966BDECFF88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewView.Contracts", "BrewView.Contracts\BrewView.Contracts.csproj", "{EBE99D24-72D9-43A7-A013-CDE0082DBA6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrewView.Contracts", "BrewView.Contracts\BrewView.Contracts.csproj", "{EBE99D24-72D9-43A7-A013-CDE0082DBA6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewView.Server.Tests", "BrewView.Server.Tests\BrewView.Server.Tests.csproj", "{F10D7286-2A5F-4F3B-AD9C-15D06A884D36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{EBE99D24-72D9-43A7-A013-CDE0082DBA6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBE99D24-72D9-43A7-A013-CDE0082DBA6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBE99D24-72D9-43A7-A013-CDE0082DBA6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F10D7286-2A5F-4F3B-AD9C-15D06A884D36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F10D7286-2A5F-4F3B-AD9C-15D06A884D36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F10D7286-2A5F-4F3B-AD9C-15D06A884D36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F10D7286-2A5F-4F3B-AD9C-15D06A884D36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

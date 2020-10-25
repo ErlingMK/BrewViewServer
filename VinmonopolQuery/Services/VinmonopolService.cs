@@ -94,10 +94,10 @@ namespace VinmonopolQuery.Services
             await AddAllToDb(newBrews);
         }
 
-        private Brew CreateBrew(AlcoholicEntity alcoholicEntity)
+        private ProductGtin CreateBrew(AlcoholicEntity alcoholicEntity)
         {
             var first = alcoholicEntity.Logistics.Barcodes.FirstOrDefault(barcode => barcode.IsMainGtin);
-            return new Brew
+            return new ProductGtin
             {
                 Gtin = first?.Gtin ?? "",
                 ProductId = alcoholicEntity.Basic.ProductId
