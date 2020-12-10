@@ -75,7 +75,7 @@ namespace VinmonopolQuery.Services
             foreach (var alcoholicEntity in alcoholicEntities)
             {
                 var find = await m_db.AlcoholicEntities.FindAsync(alcoholicEntity.Basic.ProductId);
-                var brew = await m_db.Brews.FindAsync(alcoholicEntity.Basic.ProductId);
+                var brew = await m_db.ProductGtins.FindAsync(alcoholicEntity.Basic.ProductId);
 
                 if (find == null)
                 {
@@ -115,7 +115,7 @@ namespace VinmonopolQuery.Services
 
             var brews = entity.Select(CreateBrew).ToList();
 
-            m_db.Brews.AddRange(brews);
+            m_db.ProductGtins.AddRange(brews);
             m_db.AlcoholicEntities.AddRange(entity);
 
             await CreateFoodBrews(entity);

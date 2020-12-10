@@ -15,9 +15,9 @@ namespace BrewView.Server.GraphQL
             m_brewRepository = brewRepository;
         }
 
-        public async Task<bool> MakeFavorite(string productId)
+        public async Task<bool> ToggleFavorite(string productId)
         {
-            return await m_brewRepository.Favorite(productId);
+            return await m_brewRepository.ToggleFavorite(productId);
         }
 
         public async Task<UserBrew> Rate(string productId, int rating)

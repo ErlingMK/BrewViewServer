@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BrewView.Server.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -39,7 +39,6 @@ namespace BrewView.Server.Migrations
                     Logistics_OrderPack = table.Column<string>(nullable: true),
                     Logistics_MinimumOrderQuantity = table.Column<double>(nullable: true),
                     Logistics_PackagingWeight = table.Column<double>(nullable: true),
-                    Origins_OriginsId = table.Column<Guid>(nullable: true),
                     Origins_Origin_CountryId = table.Column<string>(nullable: true),
                     Origins_Origin_Country = table.Column<string>(nullable: true),
                     Origins_Origin_RegionId = table.Column<string>(nullable: true),
@@ -75,7 +74,6 @@ namespace BrewView.Server.Migrations
                     Classification_ProductTypeName = table.Column<string>(nullable: true),
                     Classification_ProductGroupId = table.Column<string>(nullable: true),
                     Classification_ProductGroupName = table.Column<string>(nullable: true),
-                    Ingredients_IngredientsId = table.Column<Guid>(nullable: true),
                     Ingredients_Sugar = table.Column<string>(nullable: true),
                     Ingredients_Acid = table.Column<string>(nullable: true),
                     Description_Characteristics_Colour = table.Column<string>(nullable: true),
@@ -92,18 +90,6 @@ namespace BrewView.Server.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AlcoholicEntities", x => x.ProductId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Brews",
-                columns: table => new
-                {
-                    ProductId = table.Column<string>(nullable: false),
-                    Gtin = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Brews", x => x.ProductId);
                 });
 
             migrationBuilder.CreateTable(
@@ -128,6 +114,18 @@ namespace BrewView.Server.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Grapes", x => x.GrapeId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProductGtins",
+                columns: table => new
+                {
+                    ProductId = table.Column<string>(nullable: false),
+                    Gtin = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductGtins", x => x.ProductId);
                 });
 
             migrationBuilder.CreateTable(
@@ -230,9 +228,9 @@ namespace BrewView.Server.Migrations
                 {
                     table.PrimaryKey("PK_UserBrews", x => new { x.ProductId, x.UserId });
                     table.ForeignKey(
-                        name: "FK_UserBrews_Brews_ProductId",
+                        name: "FK_UserBrews_ProductGtins_ProductId",
                         column: x => x.ProductId,
-                        principalTable: "Brews",
+                        principalTable: "ProductGtins",
                         principalColumn: "ProductId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -309,7 +307,7 @@ namespace BrewView.Server.Migrations
                 name: "AlcoholicEntities");
 
             migrationBuilder.DropTable(
-                name: "Brews");
+                name: "ProductGtins");
 
             migrationBuilder.DropTable(
                 name: "Users");

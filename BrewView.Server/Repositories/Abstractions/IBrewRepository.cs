@@ -9,7 +9,7 @@ namespace BrewView.Server.Repositories.Abstractions
     {
         Task<BrewView.Contracts.Brew> Get(string productId);
         Task<UserBrew> GetUserBrew(string productId);
-        Task<bool> Favorite(string id);
+        Task<bool> ToggleFavorite(string id);
         Task<int?> UpdateDrunkCount(string productId, int count);
         Task<UserBrew> Rate(string productId, int rating);
         Task<UserBrew> MakeNote(string productId, Note note);

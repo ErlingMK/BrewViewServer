@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BrewView.Server.Migrations
 {
     [DbContext(typeof(BrewContext))]
-    [Migration("20201014193701_initial")]
-    partial class initial
+    [Migration("20201025120512_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,19 +20,6 @@ namespace BrewView.Server.Migrations
                 .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("BrewView.DatabaseModels.Models.Brew", b =>
-                {
-                    b.Property<string>("ProductId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Gtin")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ProductId");
-
-                    b.ToTable("Brews");
-                });
 
             modelBuilder.Entity("BrewView.DatabaseModels.Models.FoodAlcoholicEntity", b =>
                 {
@@ -65,6 +52,19 @@ namespace BrewView.Server.Migrations
                     b.HasIndex("GrapeId");
 
                     b.ToTable("GrapeBrews");
+                });
+
+            modelBuilder.Entity("BrewView.DatabaseModels.Models.ProductGtin", b =>
+                {
+                    b.Property<string>("ProductId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Gtin")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProductId");
+
+                    b.ToTable("ProductGtins");
                 });
 
             modelBuilder.Entity("BrewView.DatabaseModels.Models.UserBrew", b =>
@@ -181,7 +181,7 @@ namespace BrewView.Server.Migrations
 
             modelBuilder.Entity("BrewView.DatabaseModels.Models.UserBrew", b =>
                 {
-                    b.HasOne("BrewView.DatabaseModels.Models.Brew", "Brew")
+                    b.HasOne("BrewView.DatabaseModels.Models.ProductGtin", "ProductGtin")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -385,9 +385,6 @@ namespace BrewView.Server.Migrations
                             b1.Property<string>("Acid")
                                 .HasColumnType("nvarchar(max)");
 
-                            b1.Property<Guid?>("IngredientsId")
-                                .HasColumnType("uniqueidentifier");
-
                             b1.Property<string>("Sugar")
                                 .HasColumnType("nvarchar(max)");
 
@@ -471,9 +468,6 @@ namespace BrewView.Server.Migrations
 
                             b1.Property<string>("LocalQualityClassifId")
                                 .HasColumnType("nvarchar(max)");
-
-                            b1.Property<Guid?>("OriginsId")
-                                .HasColumnType("uniqueidentifier");
 
                             b1.HasKey("AlcoholicEntityProductId");
 

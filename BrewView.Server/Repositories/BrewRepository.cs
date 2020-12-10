@@ -28,6 +28,7 @@ namespace BrewView.Server.Repositories
         public async Task<Contracts.Brew> Get(string productId)
         {
             var alcoholicEntity = await m_db.AlcoholicEntities.FindAsync(productId);
+            alcoholicEntity.Basic.ProductId = alcoholicEntity.ProductId;
             return m_mapper.Map<Contracts.Brew>(alcoholicEntity);
         }
 
@@ -37,11 +38,17 @@ namespace BrewView.Server.Repositories
                 brew.ProductId == productId && brew.UserId == m_userService.CurrentUser);
         }
 
-        public async Task<bool> Favorite(string id)
+        public async Task<bool> ToggleFavorite(string id)
         {
-            if (await GetUserBrew(id) != null) return true;
+            var userBrew = await GetUserBrew(id);
+            if (userBrew != null)
+            {
+                m_db.UserBrews.Remove(userBrew);
+                await m_db.SaveChangesAsync();
+                return true;
+            };
 
-            var brew = await m_db.Brews.FindAsync(id);
+            var brew = await m_db.ProductGtins.FindAsync(id);
             var user = await m_db.Users.FindAsync(m_userService.CurrentUser);
 
             if (brew == null || user == null) return false;
@@ -99,7 +106,7 @@ namespace BrewView.Server.Repositories
 
         public async Task<Contracts.Brew> GetByGtin(string gtin)
         {
-            var brew = await m_db.Brews.SingleOrDefaultAsync(b => b.Gtin == gtin);
+            var brew = await m_db.ProductGtins.SingleOrDefaultAsync(b => b.Gtin == gtin);
 
             if (brew == null) return null;
 
@@ -111,6 +118,7 @@ namespace BrewView.Server.Repositories
             var brews = await m_db.UserBrews.Where(b => b.UserId == m_userService.CurrentUser)
                 .Select(brew => brew.ProductId).ToListAsync();
             var alcoholicEntities = await m_db.AlcoholicEntities.Where(entity => brews.Contains(entity.ProductId)).ToListAsync();
+            alcoholicEntities.ForEach(entity => entity.Basic.ProductId = entity.ProductId);
             return alcoholicEntities.Select(entity => m_mapper.Map<Contracts.Brew>(entity)).ToList();
         }
 

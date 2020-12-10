@@ -19,19 +19,6 @@ namespace BrewView.Server.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("BrewView.DatabaseModels.Models.Brew", b =>
-                {
-                    b.Property<string>("ProductId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Gtin")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ProductId");
-
-                    b.ToTable("Brews");
-                });
-
             modelBuilder.Entity("BrewView.DatabaseModels.Models.FoodAlcoholicEntity", b =>
                 {
                     b.Property<string>("ProductId")
@@ -63,6 +50,19 @@ namespace BrewView.Server.Migrations
                     b.HasIndex("GrapeId");
 
                     b.ToTable("GrapeBrews");
+                });
+
+            modelBuilder.Entity("BrewView.DatabaseModels.Models.ProductGtin", b =>
+                {
+                    b.Property<string>("ProductId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Gtin")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProductId");
+
+                    b.ToTable("ProductGtins");
                 });
 
             modelBuilder.Entity("BrewView.DatabaseModels.Models.UserBrew", b =>
@@ -179,7 +179,7 @@ namespace BrewView.Server.Migrations
 
             modelBuilder.Entity("BrewView.DatabaseModels.Models.UserBrew", b =>
                 {
-                    b.HasOne("BrewView.DatabaseModels.Models.Brew", "Brew")
+                    b.HasOne("BrewView.DatabaseModels.Models.ProductGtin", "ProductGtin")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -383,9 +383,6 @@ namespace BrewView.Server.Migrations
                             b1.Property<string>("Acid")
                                 .HasColumnType("nvarchar(max)");
 
-                            b1.Property<Guid?>("IngredientsId")
-                                .HasColumnType("uniqueidentifier");
-
                             b1.Property<string>("Sugar")
                                 .HasColumnType("nvarchar(max)");
 
@@ -469,9 +466,6 @@ namespace BrewView.Server.Migrations
 
                             b1.Property<string>("LocalQualityClassifId")
                                 .HasColumnType("nvarchar(max)");
-
-                            b1.Property<Guid?>("OriginsId")
-                                .HasColumnType("uniqueidentifier");
 
                             b1.HasKey("AlcoholicEntityProductId");
 

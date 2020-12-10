@@ -23,9 +23,19 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using AuthenticationService = BrewView.Server.Authentication.AuthenticationService;
 using Basic = BrewView.DatabaseModels.Vinmonopol.Basic;
+using Characteristics = BrewView.DatabaseModels.Vinmonopol.Characteristics;
+using Classification = BrewView.DatabaseModels.Vinmonopol.Classification;
+using Description = BrewView.DatabaseModels.Vinmonopol.Description;
+using Food = BrewView.DatabaseModels.Vinmonopol.Food;
+using Grape = BrewView.DatabaseModels.Vinmonopol.Grape;
+using Ingredients = BrewView.DatabaseModels.Vinmonopol.Ingredients;
+using LastChanged = BrewView.DatabaseModels.Vinmonopol.LastChanged;
 using Logistics = BrewView.DatabaseModels.Vinmonopol.Logistics;
 using Origin = BrewView.DatabaseModels.Vinmonopol.Origin;
 using Origins = BrewView.DatabaseModels.Vinmonopol.Origins;
+using Price = BrewView.DatabaseModels.Vinmonopol.Price;
+using Production = BrewView.DatabaseModels.Vinmonopol.Production;
+using Properties = BrewView.DatabaseModels.Vinmonopol.Properties;
 
 namespace BrewView.Server
 {
@@ -85,8 +95,23 @@ namespace BrewView.Server
             obj.CreateMap<AlcoholicEntity, Brew>();
             obj.CreateMap<Basic, Contracts.Basic>();
             obj.CreateMap<Logistics, Contracts.Logistics>();
-            obj.CreateMap<Origins, Contracts.Origins>();
 
+            obj.CreateMap<Origins, Contracts.Origins>();
+            obj.CreateMap<Origin, Contracts.Origin>();
+            obj.CreateMap<Production, Contracts.Production>();
+
+            obj.CreateMap<Properties, Contracts.Properties>();
+            obj.CreateMap<Classification, Contracts.Classification>();
+
+            obj.CreateMap<Ingredients, Contracts.Ingredients>();
+            obj.CreateMap<Grape, Contracts.Grape>();
+
+            obj.CreateMap<Description, Contracts.Description>();
+            obj.CreateMap<Characteristics, Contracts.Characteristics>();
+            obj.CreateMap<Food, Contracts.Food>();
+
+            obj.CreateMap<Price, Contracts.Price>();
+            obj.CreateMap<LastChanged, Contracts.LastChanged>();
         }
 
 

@@ -22,7 +22,7 @@ namespace BrewView.Server.GraphQL
             return await m_repository.Get(productId);
         }
 
-        public async Task<Contracts.Brew> GetBrewId(string gtin)
+        public async Task<Contracts.Brew> GetBrewWithCode(string gtin)
         {
             return await m_repository.GetByGtin(gtin);
         }
