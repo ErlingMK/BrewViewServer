@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using BrewView.Contracts;
 using BrewView.Contracts.User;
 using BrewView.DatabaseModels.Models;
@@ -59,7 +61,7 @@ namespace BrewView.Server.Services
             }
             catch (Exception e)
             {
-                m_logger.LogError(e, "unable to exchange code for token");
+                m_logger.LogError("unable to exchange code for token");
                 return new UserValidationResponse(false);
             }
         }

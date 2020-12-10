@@ -20,7 +20,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using AuthenticationService = BrewView.Server.Authentication.AuthenticationService;
 using Basic = BrewView.DatabaseModels.Vinmonopol.Basic;
 using Characteristics = BrewView.DatabaseModels.Vinmonopol.Characteristics;
@@ -52,14 +51,8 @@ namespace BrewView.Server
         {
             services.AddDbContext<BrewContext>(opt =>
             {
-#if DEBUG
-                //opt.UseSqlite("Data Source=../Brew.db",
-                //    builder => builder.MigrationsAssembly(Assembly.GetAssembly(typeof(Startup)).ToString()));
-                opt.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection"), builder => builder.MigrationsAssembly(Assembly.GetAssembly(typeof(Startup)).ToString()));
-#else
                 opt.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection"),
                     builder => builder.MigrationsAssembly(Assembly.GetAssembly(typeof(Startup)).ToString()));
-#endif
             });
 
             services.AddGraphQL(
@@ -68,26 +61,29 @@ namespace BrewView.Server
                     .AddMutationType<Mutation>()
                     .Create());
 
+            ConfigureContainer(services);
+        }
+
+        private static void ConfigureContainer(IServiceCollection services)
+        {
+            //Mapper
             services.AddSingleton(new MapperConfiguration(ConfigureMapper));
             services.AddScoped(provider => provider.GetService<MapperConfiguration>().CreateMapper());
 
+            //Services
             services.AddScoped<IBrewViewAuthentication, BrewViewAuthentication>();
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<IOAuthService, OAuthService>();
-            services.AddScoped<IBrewRepository, BrewRepository>();
-            services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
             services.AddSingleton<IGoogleAuthentication, GoogleAuthentication>();
+
+            //Repositories
+            services.AddScoped<IBrewRepository, BrewRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+
             services.AddHttpContextAccessor();
             services.AddControllers();
             services.AddHttpClient();
-            services.AddLogging(builder =>
-            {
-                builder.ClearProviders();
-                builder.AddConsole();
-                builder.AddAzureWebAppDiagnostics();
-                builder.AddApplicationInsights();
-            });
         }
 
         public static void ConfigureMapper(IMapperConfigurationExpression obj)
@@ -114,12 +110,9 @@ namespace BrewView.Server
             obj.CreateMap<LastChanged, Contracts.LastChanged>();
         }
 
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment()) app.UseExceptionHandler("/error/dev");
-            else app.UseExceptionHandler("/error");
+            app.UseExceptionHandler(env.IsDevelopment() ? "/error/dev" : "/error");
 
             app.UseHttpsRedirection();
 

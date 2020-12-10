@@ -7,20 +7,23 @@ using BrewView.Server.Authentication.BrewView;
 using BrewView.Server.Authentication.Google;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 namespace BrewView.Server.Authentication
 {
     public class AuthenticationService : IAuthenticationService
     {
         private readonly IBrewViewAuthentication m_brewViewAuthentication;
+        private readonly ILogger<AuthenticationService> m_logger;
         private readonly IGoogleAuthentication m_googleAuthentication;
         private readonly JwtSecurityTokenHandler m_tokenHandler;
 
         public AuthenticationService(IGoogleAuthentication googleAuthentication,
-            IBrewViewAuthentication brewViewAuthentication)
+            IBrewViewAuthentication brewViewAuthentication, ILogger<AuthenticationService> logger)
         {
             m_googleAuthentication = googleAuthentication;
             m_brewViewAuthentication = brewViewAuthentication;
+            m_logger = logger;
             m_tokenHandler = new JwtSecurityTokenHandler();
         }
 
@@ -47,6 +50,7 @@ namespace BrewView.Server.Authentication
             }
             catch (Exception e)
             {
+                m_logger.LogDebug($"Authentication failed. {e.StackTrace}");
                 return AuthenticateResult.Fail(e);
             }
         }

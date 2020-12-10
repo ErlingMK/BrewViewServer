@@ -9,6 +9,7 @@ using BrewView.DatabaseModels.Vinmonopol;
 using BrewView.Server.Repositories.Abstractions;
 using BrewView.Server.Services.Abstractions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace BrewView.Server.Repositories
 {
@@ -17,12 +18,14 @@ namespace BrewView.Server.Repositories
         private readonly BrewContext m_db;
         private readonly IUserService m_userService;
         private readonly IMapper m_mapper;
+        private readonly ILogger<BrewRepository> m_logger;
 
-        public BrewRepository(BrewContext db, IUserService userService, IMapper mapper)
+        public BrewRepository(BrewContext db, IUserService userService, IMapper mapper, ILogger<BrewRepository> logger)
         {
             m_db = db;
             m_userService = userService;
             m_mapper = mapper;
+            m_logger = logger;
         }
 
         public async Task<Contracts.Brew> Get(string productId)
