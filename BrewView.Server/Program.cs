@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
 namespace BrewView.Server
@@ -16,8 +17,7 @@ namespace BrewView.Server
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder
-                        .UseStartup<Startup>()
-                        .UseUrls("https://*:5566");
+                        .UseStartup<Startup>();
                 });
         }
     }
